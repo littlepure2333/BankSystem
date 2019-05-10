@@ -43,7 +43,7 @@ public class CurrentAccount extends BankAccount {
 	//toString
 	public String toString() {
 		return "Account number:" + accNo + "\n" +
-				"Account name:" + accName + "\n" +
+				"Account name:" + name + "\n" +
 				"Balance:" + balance + "\n" +
 				"overdraftLimit:" + overdraftLimit;
 	}
