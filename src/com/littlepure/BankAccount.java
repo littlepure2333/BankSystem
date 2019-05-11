@@ -1,72 +1,147 @@
 package com.littlepure;
 
-public class BankAccount {
+public abstract class BankAccount {
 	// instance variables
-	protected int accNo;
-	protected String accName; 
-	protected double balance;
-	
-	// constructors
-	public BankAccount(int accNo, String accName) {
-		this.accNo = accNo;
-		this.accName = accName;
+	int accNo;
+	String name;
+	String address;
+	String DOB;
+	double balance;
+	double unclearedFunds;
+	double limit;
+	private int PIN;
+	private boolean suspended;
+
+	public static final int WITHDRAW_SUCCESS = 0;
+	public static final int EXCEED_OVERDRAFT_LIMIT = 1;
+
+	/**
+	 * 子类必须override构造器，因为账号类型决定limit
+	 * @param name
+	 * @param address
+	 * @param DOB
+	 */
+	BankAccount(String name, String address, String DOB) {
+		//todo 生成账号
+		this.name = name;
+		this.address = address;
+		this.DOB = DOB;
 		this.balance = 0;
+		this.unclearedFunds = 0;
+		this.suspended = false;
 	}
-	
-	public BankAccount(String accName, int accNo) {
-		this.accNo = accNo;
-		this.accName = accName;
-		this.balance = 0.0;
+
+	/**
+	 * getters
+	 */
+	public int getAccNo() {
+		return this.accNo;
 	}
-	
-	// accessors
-	public int getAccNo() { return accNo; }
-	public String getAccName() { return accName; }
-	public double getBalance() { return balance; }
-	
-	//mutators
-	public void setAccountName(String accName) {
-		this.accName = accName;
+
+	public String getName() {
+		return this.name;
 	}
-	
+
+	public String getAddress() {
+		return this.address;
+	}
+
+	public String getDOB() {
+		return this.DOB;
+	}
+
+	public double getBalance() {
+		return this.balance;
+	}
+
+	public double getUnclearedFunds() {
+		return this.unclearedFunds;
+	}
+
+	public double getLimit() {
+		return this.limit;
+	}
+
+	public int getPIN() {
+		return this.PIN;
+	}
+
+	public boolean getSuspended() {
+		return this.suspended;
+	}
+
+	/**
+	 * setters
+	 */
+	void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	void setUnclearedFunds(double unclearedFunds) {
+		this.unclearedFunds = unclearedFunds;
+	}
+
+	void setPIN(int PIN) {
+		this.PIN = PIN;
+	}
+
+	void setSuspended(boolean suspended) {
+		this.suspended = suspended;
+	}
+
 	// deposit method
-	public void deposit(double amount) {
-		balance = balance + amount;
-	}
+//	public void deposit(double amount) {
+//		setBalance(this.getBalance() + amount);
+//	}
 	
-	public void deposit(double amount, boolean cheque) {
-		if (cheque == false) {
-			balance = balance + amount;
+	public void deposit(double amount, boolean cleared) {
+		if (cleared == true) {
+			setBalance(this.getBalance() + amount);
 		}
 		else {
-			// code to be added
+			setUnclearedFunds(this.getUnclearedFunds() + amount);
 		}
 	}
-	
+
+	/**
+	 * clear funds
+	 * 等着外部清理系统调用
+	 */
+	public void clearFunds() {
+		setBalance(getBalance() + getUnclearedFunds());
+		setUnclearedFunds(0);
+	}
+
 	// withdraw method
-	public void withdraw(double amount) {
-		if (check(amount)) {
-			balance = balance - amount;
-			System.out.println("Withdraw " + amount + " successfully.");
+	public int withdraw(double amount) {
+		if (getBalance() - amount >= -limit) {
+			setBalance(getBalance() - amount);
+			return WITHDRAW_SUCCESS;
+		}
+		else {
+			return EXCEED_OVERDRAFT_LIMIT;
 		}
 	}
-	
-	// check method
-	protected boolean check(double amount) {
-		boolean allowed = false;
-		if (balance - amount >= 0) {
-			allowed = true;
-		} else {
-			System.out.println("Withdraw " + amount
-					+ " unsuccessfully. Do not have enough available funds.");
+
+	/**
+	 * 验证PIN是否正确
+	 * @param PIN
+	 * @return 正确与否
+	 */
+	protected boolean identify(int PIN) {
+		if(getPIN() == PIN) {
+			return true;
 		}
-		return allowed;
+		else {
+			return false;
+		}
 	}
-	
-	//toString
-	public String toString() {
-		return "Account number:" + accNo + "\n" +
-				"Account name:" + accName + "\n" +
-				"Balance:" + balance;
+
+	public void suspend() {
+		setSuspended(true);
+	}
+
+	public void reinstate() {
+		setSuspended(false);
 	}
 }
