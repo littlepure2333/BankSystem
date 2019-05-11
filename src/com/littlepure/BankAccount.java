@@ -2,18 +2,22 @@ package com.littlepure;
 
 public abstract class BankAccount {
 	// instance variables
-	int accNo;
-	String name;
-	String address;
-	String DOB;
-	double balance;
-	double unclearedFunds;
-	double limit;
-	private int PIN;
-	private boolean suspended;
+	public int accNo;
+	public String name;
+	public String address;
+	public String DOB;
+	public double balance;
+	public double unclearedFunds;
+	public double limit;
+	public int PIN;
+	public boolean suspended;
 
 	public static final int WITHDRAW_SUCCESS = 0;
 	public static final int EXCEED_OVERDRAFT_LIMIT = 1;
+
+	public BankAccount() {
+
+	}
 
 	/**
 	 * 子类必须override构造器，因为账号类型决定limit

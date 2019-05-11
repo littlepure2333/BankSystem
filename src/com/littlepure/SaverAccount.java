@@ -4,11 +4,15 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class SaverAccount extends BankAccount{
-    boolean withdrawalIsAllowed;
-    private Date noticeDate;
+    public boolean withdrawalIsAllowed;
+    public Date noticeDate;
 
     public static final int MINIMUM_PERIOD_OF_NOTICE = 3;
     public static final int WITHDRAWAL_IS_NOT_ALLOWED = 2;
+
+    public SaverAccount() {
+
+    }
 
     /**
      * 子类必须override构造器，因为账号类型决定limit
