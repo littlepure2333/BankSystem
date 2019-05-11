@@ -1,12 +1,16 @@
 package com.littlepure;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CurrentAccountList extends DataIO{
     public ArrayList<CurrentAccount> currentAccountList;
     private static final String FILE_LOCATION = "./data/currentAccount.txt";
 
     public CurrentAccountList() {
+    }
+
+    public void loadList() {
         this.currentAccountList = (ArrayList<CurrentAccount>)read(FILE_LOCATION);
     }
 
@@ -20,9 +24,11 @@ public class CurrentAccountList extends DataIO{
     }
 
     void deleteCurrentAccount(int accNo) {
-        for(CurrentAccount currentAccount: currentAccountList) {
+        Iterator<CurrentAccount> iter = currentAccountList.iterator();
+        while(iter.hasNext()) {
+            CurrentAccount currentAccount = iter.next();
             if(currentAccount.getAccNo() == accNo) {
-                currentAccountList.remove(currentAccount);
+                iter.remove();
                 save(currentAccountList, FILE_LOCATION);
             }
         }

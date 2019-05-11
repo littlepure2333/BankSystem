@@ -98,6 +98,10 @@ public abstract class BankAccount {
 		this.suspended = suspended;
 	}
 
+	public void setAccNo(int accNo) {
+		this.accNo = accNo;
+	}
+
 	// deposit method
 //	public void deposit(double amount) {
 //		setBalance(this.getBalance() + amount);

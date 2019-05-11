@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_211" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="com.littlepure.SaverAccount" id="SaverAccount0">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="SaverAccount0"/>
+      <int>222222</int>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="SaverAccount0"/>
+      <string>hahahapure</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="SaverAccount0"/>
+      <string>Rizhao</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="SaverAccount0"/>
+      <string>2008.6.3</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="SaverAccount0"/>
+      <int>1234</int>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>suspended</string>
+     <void method="set">
+      <object idref="SaverAccount0"/>
+      <boolean>true</boolean>
+     </void>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
