@@ -66,6 +66,11 @@ public abstract class BankAccount {
 		return this.PIN;
 	}
 
+    /**
+     * 对账户进行操作之前必须检查账户有没有被停用
+     * 如果被停用了那么不能对这个账户进行其他操作除非重新激活账户
+     * @return true/false
+     */
 	public boolean getSuspended() {
 		return this.suspended;
 	}
