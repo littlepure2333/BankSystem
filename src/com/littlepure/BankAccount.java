@@ -2,7 +2,7 @@ package com.littlepure;
 
 public abstract class BankAccount {
 	// instance variables
-	public int accNo;
+	public long accNo;
 	public String name;
 	public String address;
 	public String DOB;
@@ -38,7 +38,7 @@ public abstract class BankAccount {
 	/**
 	 * getters
 	 */
-	public int getAccNo() {
+	public long getAccNo() {
 		return this.accNo;
 	}
 
@@ -98,7 +98,7 @@ public abstract class BankAccount {
 		this.suspended = suspended;
 	}
 
-	public void setAccNo(int accNo) {
+	public void setAccNo(long accNo) {
 		this.accNo = accNo;
 	}
 
