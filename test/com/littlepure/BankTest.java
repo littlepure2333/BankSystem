@@ -130,4 +130,13 @@ class BankTest {
         Bank.reinstate();
         assertFalse(Bank.getAccount().getSuspended());
     }
+
+    @Test
+    void logOut() {
+        long accNo = 1557647912110L;
+        int PIN = 2233;
+        Bank.logIn(accNo, PIN);
+        Bank.logOut();
+        assertTrue(Bank.getAccount() == null);
+    }
 }

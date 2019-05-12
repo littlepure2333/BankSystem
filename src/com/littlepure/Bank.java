@@ -288,11 +288,6 @@ public class Bank {
         update();
     }
 
-    //todo check suspended
-    //todo deposit
-    //todo withdraw
-    //todo suspend
-    //todo reinstate
     //todo close
     //todo logout
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框
