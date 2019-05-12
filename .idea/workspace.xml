@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a030392e-cb4b-43eb-acd4-5fe75b81407a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/currentAccount.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/currentAccount.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/LogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LogIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/OpenAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/OpenAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/littlepure/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/littlepure/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Deposit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Deposit.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +31,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/views/Menu.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-278">
+                <state relative-caret-position="226">
                   <caret line="52" column="48" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/views/Deposit.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="765">
+                  <caret line="109" column="54" selection-start-line="109" selection-start-column="54" selection-end-line="109" selection-end-column="54" />
                 </state>
               </provider>
             </entry>
@@ -43,26 +49,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/views/LogIn.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/views/OpenAccount.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="90" column="61" lean-forward="true" selection-start-line="90" selection-start-column="61" selection-end-line="90" selection-end-column="61" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/views/SetPIN.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+                <state relative-caret-position="202">
+                  <caret line="64" column="45" lean-forward="true" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
                 </state>
               </provider>
             </entry>
@@ -71,14 +59,35 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/littlepure/Bank.java">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/littlepure/JuniorAccountList.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3522">
-                  <caret line="350" column="6" selection-start-line="350" selection-start-column="6" selection-end-line="350" selection-end-column="6" />
+                <state relative-caret-position="-817">
+                  <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/littlepure/Bank.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="194">
+                  <caret line="351" column="29" selection-start-line="351" selection-start-column="29" selection-end-line="351" selection-end-column="29" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/views/OpenAccount.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-46">
+                  <caret line="114" column="32" lean-forward="true" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -136,12 +145,10 @@
         <option value="$PROJECT_DIR$/test/com/littlepure/JuniorAccountListTest.java" />
         <option value="$PROJECT_DIR$/test/com/littlepure/CurrentAccountListTest.java" />
         <option value="$PROJECT_DIR$/test/com/littlepure/BankTest.java" />
-        <option value="$PROJECT_DIR$/src/com/littlepure/Bank.java" />
         <option value="$PROJECT_DIR$/test/com/littlepure/SaverAccountListTest.java" />
         <option value="$PROJECT_DIR$/src/com/littlepure/BankAccount.java" />
         <option value="$PROJECT_DIR$/src/com/littlepure/SaverAccount.java" />
         <option value="$PROJECT_DIR$/src/views/CloseAccount.java" />
-        <option value="$PROJECT_DIR$/src/views/Deposit.java" />
         <option value="$PROJECT_DIR$/src/views/Menu.java" />
         <option value="$PROJECT_DIR$/src/views/ReinstateAccount.java" />
         <option value="$PROJECT_DIR$/src/views/SuspendAccount.java" />
@@ -151,8 +158,10 @@
         <option value="$PROJECT_DIR$/src/com/littlepure/JuniorAccountList.java" />
         <option value="$PROJECT_DIR$/src/com/littlepure/SaverAccountList.java" />
         <option value="$PROJECT_DIR$/src/views/LogIn.java" />
-        <option value="$PROJECT_DIR$/src/views/OpenAccount.java" />
         <option value="$PROJECT_DIR$/src/views/SetPIN.java" />
+        <option value="$PROJECT_DIR$/src/views/OpenAccount.java" />
+        <option value="$PROJECT_DIR$/src/com/littlepure/Bank.java" />
+        <option value="$PROJECT_DIR$/src/views/Deposit.java" />
       </list>
     </option>
   </component>
@@ -363,7 +372,7 @@
       <workItem from="1557493605400" duration="2737000" />
       <workItem from="1557549679341" duration="36227000" />
       <workItem from="1557627834065" duration="33406000" />
-      <workItem from="1557691757909" duration="4793000" />
+      <workItem from="1557691757909" duration="7158000" />
     </task>
     <task id="LOCAL-00001" summary="add .gitignore">
       <created>1557493798891</created>
@@ -484,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557695145746</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="GUI test set PIN">
+      <created>1557696705749</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557696705749</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -520,7 +536,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79701000" />
+    <option name="totallyTimeSpent" value="82066000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -662,7 +678,8 @@
     <MESSAGE value="add close account" />
     <MESSAGE value="add GUI" />
     <MESSAGE value="GUI test open account" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI test open account" />
+    <MESSAGE value="GUI test set PIN" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI test set PIN" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/littlepure/BankCleanSystem.java">
@@ -742,21 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/littlepure/BankAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-667">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding>
-            <element signature="e#1637#1638#0" expanded="true" />
-            <element signature="e#1670#1671#0" expanded="true" />
-            <element signature="e#2611#2612#0" expanded="true" />
-            <element signature="e#2636#2637#0" expanded="true" />
-            <element signature="e#2664#2665#0" expanded="true" />
-            <element signature="e#2690#2691#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/littlepure/SaverAccount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1272">
@@ -776,13 +778,6 @@
             <element signature="e#166#167#0" expanded="true" />
             <element signature="e#219#220#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Deposit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -827,20 +822,6 @@
             <element signature="e#455#456#0" expanded="true" />
             <element signature="e#519#520#0" expanded="true" />
             <element signature="e#560#561#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/littlepure/JuniorAccountList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#362#363#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#550#551#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -903,41 +884,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/littlepure/Bank.java">
+    <entry file="file://$PROJECT_DIR$/src/views/SetPIN.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3522">
-          <caret line="350" column="6" selection-start-line="350" selection-start-column="6" selection-end-line="350" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="960">
+          <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-278">
+        <state relative-caret-position="226">
           <caret line="52" column="48" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/LogIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="202">
+          <caret line="64" column="45" lean-forward="true" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/OpenAccount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="90" column="61" lean-forward="true" selection-start-line="90" selection-start-column="61" selection-end-line="90" selection-end-column="61" />
+        <state relative-caret-position="-46">
+          <caret line="114" column="32" lean-forward="true" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/SetPIN.java">
+    <entry file="file://$PROJECT_DIR$/src/com/littlepure/JuniorAccountList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+        <state relative-caret-position="-817">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/littlepure/BankAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+          <folding>
+            <element signature="e#1342#1343#0" expanded="true" />
+            <element signature="e#1370#1371#0" expanded="true" />
+            <element signature="e#1637#1638#0" expanded="true" />
+            <element signature="e#1670#1671#0" expanded="true" />
+            <element signature="e#2611#2612#0" expanded="true" />
+            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="e#2664#2665#0" expanded="true" />
+            <element signature="e#2690#2691#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/littlepure/Bank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="351" column="29" selection-start-line="351" selection-start-column="29" selection-end-line="351" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Deposit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="109" column="54" selection-start-line="109" selection-start-column="54" selection-end-line="109" selection-end-column="54" />
         </state>
       </provider>
     </entry>

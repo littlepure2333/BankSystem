@@ -348,6 +348,30 @@ public class Bank {
         return formatter.format(date);
     }
 
+    /**
+     * 按照accNo查找账户，并且会加载到当前账户
+     * @param accNo
+     * @return
+     */
+    public static BankAccount findAccountByNo(long accNo) {
+        BankAccount temp = juniorAccountList.findAccountByNo(accNo);
+        if(temp != null) {
+            setAccount(temp);
+            return temp;
+        }
+        temp = saverAccountList.findAccountByNo(accNo);
+        if(temp != null) {
+            setAccount(temp);
+            return temp;
+        }
+        temp = currentAccountList.findAccountByNo(accNo);
+        if(temp != null) {
+            setAccount(temp);
+            return temp;
+        }
+        return null;
+    }
+
     //todo notice
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框
 }
