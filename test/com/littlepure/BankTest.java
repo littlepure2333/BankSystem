@@ -132,7 +132,7 @@ class BankTest {
     }
 
     @Test
-    void logOut() {
+    void testLogOut() {
         long accNo = 1557647912110L;
         int PIN = 2233;
         Bank.logIn(accNo, PIN);
@@ -141,7 +141,7 @@ class BankTest {
     }
 
     @Test
-    void closeAccount() {
+    void testCloseAccount() {
         String name1 = "测试删除账号";
         String address1 = "荒蛮之地";
         String DOB1 = "1990-4-23";
@@ -153,6 +153,21 @@ class BankTest {
         Bank.logIn(testAccNo, PIN1);
         Bank.closeAccount();
         assertTrue(Bank.getSaverAccountList().findAccountByNo(testAccNo) == null);
+
+    }
+
+    @Test
+    void testNotice() {
+        String name1 = "测试notice账号";
+        String address1 = "haha home";
+        String DOB1 = "1970-4-23";
+        int PIN1 = 6677;
+        int noticeDays1 = 2;
+        int noticeDays2 = 3;
+        Bank.register(name1, address1, DOB1, Bank.SAVER);
+        assertFalse(Bank.applyNotice(noticeDays1));
+        assertTrue(Bank.applyNotice(noticeDays2));
+        System.out.println(Bank.getNoticeDate());
 
     }
 }

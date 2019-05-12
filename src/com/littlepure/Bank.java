@@ -15,15 +15,12 @@ public class Bank {
     public static final int POOR_CREDIT_HISTORY = 3;
     public static final int UNKNOWN_TYPE = 4;
 
-    private static JuniorAccountList juniorAccountList;
-    private static CurrentAccountList currentAccountList;
-    private static SaverAccountList saverAccountList;
+    private static JuniorAccountList juniorAccountList = new JuniorAccountList();
+    private static CurrentAccountList currentAccountList = new CurrentAccountList();
+    private static SaverAccountList saverAccountList = new SaverAccountList();
     private static BankAccount account;
 
     static {
-        juniorAccountList = new JuniorAccountList();
-        currentAccountList = new CurrentAccountList();
-        saverAccountList = new SaverAccountList();
         juniorAccountList.loadList();
         currentAccountList.loadList();
         saverAccountList.loadList();
@@ -52,7 +49,8 @@ public class Bank {
 
     /**
      * 给用户注册，选择账户类型并返回注册结果
-     * 注册成功后要立即调用
+     * 注册成功后会使当前账户变成刚注册的账户
+     * 注册成功后要立即调用setPIN
      * @param name
      * @param address
      * @param DOB -Date of birth
@@ -323,6 +321,33 @@ public class Bank {
         }
     }
 
-    //todo close
+    /**
+     * 申请notice,并保存更改结果到本地
+     * 仅当当前账户是saver时才会调用
+     * withdraw返回结果是 没有notice 时紧接着调用此函数
+     * @param noticeDays -申请几天后取钱
+     * @return true/false -是否符合最小日期
+     */
+    public static boolean applyNotice(int noticeDays) {
+        SaverAccount saverAccount = (SaverAccount)Bank.getAccount();
+        boolean result = saverAccount.applyNotice(noticeDays);
+        update();
+        return result;
+    }
+
+    /**
+     * 获取notice是哪一天
+     * 仅当当前账户是saver时才会调用
+     * withdraw返回结果是 没到notice 时紧接着调用此函数显示什么时候是notice
+     * @return "yyyy-MM-dd" -notice的时间
+     */
+    public static String getNoticeDate() {
+        SaverAccount saverAccount = (SaverAccount)Bank.getAccount();
+        Date date = saverAccount.getNoticeDate();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        return formatter.format(date);
+    }
+
+    //todo notice
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框
 }
