@@ -65,11 +65,29 @@ class BankTest {
         String name1 = "fdslj";
         String address1 = "rubbish";
         String DOB1 = "1990-4-23";
-        int PIN = 1122;
-        Bank.register(name1, address1, DOB1, Bank.SAVER);
-        Bank.setPIN(PIN);
-        assertEquals(PIN, Bank.getAccount().getPIN());
+        int PIN1 = 1122;
+        String name2 = "fdslj";
+        String address2 = "rubbish";
+        String DOB2 = "1990-4-23";
+        int PIN2 = 2233;
+        String name3 = "fdslj";
+        String address3 = "rubbish";
+        String DOB3 = "2010-4-23";
+        int PIN3 = 3344;
 
-        assertTrue(Bank.logIn(Bank.getAccount().getAccNo(), PIN));
+        Bank.register(name1, address1, DOB1, Bank.SAVER);
+        Bank.setPIN(PIN1);
+        assertEquals(PIN1, Bank.getAccount().getPIN());
+        assertTrue(Bank.logIn(Bank.getAccount().getAccNo(), PIN1));
+
+        Bank.register(name2, address2, DOB2, Bank.CURRENT);
+        Bank.setPIN(PIN2);
+        assertEquals(PIN2, Bank.getAccount().getPIN());
+        assertTrue(Bank.logIn(Bank.getAccount().getAccNo(), PIN2));
+
+        Bank.register(name3, address3, DOB3, Bank.JUNIOR);
+        Bank.setPIN(PIN3);
+        assertEquals(PIN3, Bank.getAccount().getPIN());
+        assertTrue(Bank.logIn(Bank.getAccount().getAccNo(), PIN3));
     }
 }

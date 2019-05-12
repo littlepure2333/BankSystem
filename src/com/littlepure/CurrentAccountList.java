@@ -61,4 +61,12 @@ public class CurrentAccountList extends DataIO{
         }
         return null;
     }
+
+    /**
+     * 在账户进行更改后立即调用此函数
+     * 把更改保存到本地
+     */
+    void update() {
+        save(currentAccountList, FILE_LOCATION);
+    }
 }

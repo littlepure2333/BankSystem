@@ -9,7 +9,7 @@ public class Bank {
     public static final int JUNIOR = 0;
     public static final int CURRENT = 1;
     public static final int SAVER = 2;
-    public static final int RIGISTER_SUCCESS = 0;
+    public static final int REGISTER_SUCCESS = 0;
     public static final int INCORRECT_FORMAT = 1;
     public static final int NOT_JUNIOR = 2;
     public static final int POOR_CREDIT_HISTORY = 3;
@@ -36,8 +36,8 @@ public class Bank {
     }
 
     /**
-     * 给用户注册，选择类型
-     * 并返回注册结果
+     * 给用户注册，选择账户类型并返回注册结果
+     * 注册成功后要立即调用
      * @param name
      * @param address
      * @param DOB -Date of birth
@@ -53,7 +53,7 @@ public class Bank {
                             JuniorAccount juniorAccount = new JuniorAccount(name, address, DOB);
                             juniorAccountList.addJuniorAccount(juniorAccount);
                             setAccount(juniorAccount);
-                            return RIGISTER_SUCCESS;
+                            return REGISTER_SUCCESS;
                         }
                         else {
                             return POOR_CREDIT_HISTORY;
@@ -67,7 +67,7 @@ public class Bank {
                         CurrentAccount currentAccount = new CurrentAccount(name, address, DOB);
                         currentAccountList.addCurrentAccount(currentAccount);
                         setAccount(currentAccount);
-                        return RIGISTER_SUCCESS;
+                        return REGISTER_SUCCESS;
                     }
                     else {
                         return POOR_CREDIT_HISTORY;
@@ -77,7 +77,7 @@ public class Bank {
                         SaverAccount saverAccount = new SaverAccount(name, address, DOB);
                         saverAccountList.addSaverAccount(saverAccount);
                         setAccount(saverAccount);
-                        return RIGISTER_SUCCESS;
+                        return REGISTER_SUCCESS;
                     }
                     else {
                         return POOR_CREDIT_HISTORY;
@@ -149,6 +149,13 @@ public class Bank {
         Bank.account = account;
     }
 
+    /**
+     * 登陆,并且加载到当前账户，只有账号密码都对才返回正确
+     * 账号不存在，密码错误都会返回false
+     * @param accNo -账号
+     * @param PIN -密码
+     * @return true/false
+     */
     public static boolean logIn(long accNo, int PIN) {
         BankAccount temp = saverAccountList.findAccountByNo(accNo);
         if(temp != null) {
@@ -160,8 +167,26 @@ public class Bank {
                 return false;
             }
         }
-        //todo current
-        //todo saver
+        temp = currentAccountList.findAccountByNo(accNo);
+        if(temp != null) {
+            if(temp.identify(PIN)) {
+                setAccount(temp);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        temp = juniorAccountList.findAccountByNo(accNo);
+        if(temp != null) {
+            if(temp.identify(PIN)) {
+                setAccount(temp);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
         return false;
     }
 
@@ -171,6 +196,17 @@ public class Bank {
      */
     public static void setPIN(int PIN) {
         getAccount().setPIN(PIN);
+        update();
+    }
+
+    /**
+     * 在账户进行更改后立即调用此函数
+     * 把更改保存到本地
+     */
+    public static void update() {
+        saverAccountList.update();
+        currentAccountList.update();
+        juniorAccountList.update();
     }
 
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框

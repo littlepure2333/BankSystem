@@ -125,5 +125,228 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="com.littlepure.CurrentAccount" id="CurrentAccount3">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="CurrentAccount3"/>
+      <long>1557645906232</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="CurrentAccount3"/>
+      <string>fdslj</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="CurrentAccount3"/>
+      <string>rubbish</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="CurrentAccount3"/>
+      <string>1990-4-23</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>limit</string>
+     <void method="set">
+      <object idref="CurrentAccount3"/>
+      <double>2000.0</double>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.littlepure.CurrentAccount" id="CurrentAccount4">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="CurrentAccount4"/>
+      <long>1557647588217</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="CurrentAccount4"/>
+      <string>fdslj</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="CurrentAccount4"/>
+      <string>rubbish</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="CurrentAccount4"/>
+      <string>1990-4-23</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>limit</string>
+     <void method="set">
+      <object idref="CurrentAccount4"/>
+      <double>2000.0</double>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="CurrentAccount4"/>
+      <int>3344</int>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.littlepure.CurrentAccount" id="CurrentAccount5">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="CurrentAccount5"/>
+      <long>1557647745098</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="CurrentAccount5"/>
+      <string>fdslj</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="CurrentAccount5"/>
+      <string>rubbish</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="CurrentAccount5"/>
+      <string>1990-4-23</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>limit</string>
+     <void method="set">
+      <object idref="CurrentAccount5"/>
+      <double>2000.0</double>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="CurrentAccount5"/>
+      <int>3344</int>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.littlepure.CurrentAccount" id="CurrentAccount6">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="CurrentAccount6"/>
+      <long>1557647844766</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="CurrentAccount6"/>
+      <string>fdslj</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="CurrentAccount6"/>
+      <string>rubbish</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="CurrentAccount6"/>
+      <string>1990-4-23</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>limit</string>
+     <void method="set">
+      <object idref="CurrentAccount6"/>
+      <double>2000.0</double>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="CurrentAccount6"/>
+      <int>3344</int>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.littlepure.CurrentAccount" id="CurrentAccount7">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="CurrentAccount7"/>
+      <long>1557647912110</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="CurrentAccount7"/>
+      <string>fdslj</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="CurrentAccount7"/>
+      <string>rubbish</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="CurrentAccount7"/>
+      <string>1990-4-23</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>limit</string>
+     <void method="set">
+      <object idref="CurrentAccount7"/>
+      <double>2000.0</double>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="CurrentAccount7"/>
+      <int>2233</int>
+     </void>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

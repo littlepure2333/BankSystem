@@ -61,4 +61,12 @@ public class JuniorAccountList extends DataIO{
         }
         return null;
     }
+
+    /**
+     * 在账户进行更改后立即调用此函数
+     * 把更改保存到本地
+     */
+    void update() {
+        save(juniorAccountList, FILE_LOCATION);
+    }
 }

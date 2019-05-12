@@ -26,5 +26,44 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="com.littlepure.JuniorAccount" id="JuniorAccount1">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="JuniorAccount1"/>
+      <long>1557647912222</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="JuniorAccount1"/>
+      <string>fdslj</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="JuniorAccount1"/>
+      <string>rubbish</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="JuniorAccount1"/>
+      <string>2010-4-23</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="JuniorAccount1"/>
+      <int>3344</int>
+     </void>
+    </void>
+   </object>
+  </void>
  </object>
 </java>
