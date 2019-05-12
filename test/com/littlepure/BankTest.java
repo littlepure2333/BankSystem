@@ -139,4 +139,20 @@ class BankTest {
         Bank.logOut();
         assertTrue(Bank.getAccount() == null);
     }
+
+    @Test
+    void closeAccount() {
+        String name1 = "测试删除账号";
+        String address1 = "荒蛮之地";
+        String DOB1 = "1990-4-23";
+        int PIN1 = 5566;
+        Bank.register(name1, address1, DOB1, Bank.SAVER);
+        long testAccNo = Bank.getAccount().getAccNo();
+        Bank.setPIN(PIN1);
+        Bank.logOut();
+        Bank.logIn(testAccNo, PIN1);
+        Bank.closeAccount();
+        assertTrue(Bank.getSaverAccountList().findAccountByNo(testAccNo) == null);
+
+    }
 }

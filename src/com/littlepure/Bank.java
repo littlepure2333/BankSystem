@@ -15,15 +15,30 @@ public class Bank {
     public static final int POOR_CREDIT_HISTORY = 3;
     public static final int UNKNOWN_TYPE = 4;
 
-    private static JuniorAccountList juniorAccountList = new JuniorAccountList();
-    private static CurrentAccountList currentAccountList = new CurrentAccountList();
-    private static SaverAccountList saverAccountList = new SaverAccountList();
+    private static JuniorAccountList juniorAccountList;
+    private static CurrentAccountList currentAccountList;
+    private static SaverAccountList saverAccountList;
     private static BankAccount account;
 
     static {
+        juniorAccountList = new JuniorAccountList();
+        currentAccountList = new CurrentAccountList();
+        saverAccountList = new SaverAccountList();
         juniorAccountList.loadList();
         currentAccountList.loadList();
         saverAccountList.loadList();
+    }
+
+    public static SaverAccountList getSaverAccountList() {
+        return saverAccountList;
+    }
+
+    public static CurrentAccountList getCurrentAccountList() {
+        return currentAccountList;
+    }
+
+    public static JuniorAccountList getJuniorAccountList() {
+        return juniorAccountList;
     }
 
     /**
@@ -288,7 +303,26 @@ public class Bank {
         update();
     }
 
+    /**
+     * 注销这个账户，本地将不会存有此账户信息
+     * 必须先登录才能调用这个函数
+     */
+    public static void closeAccount() {
+        BankAccount temp = Bank.getAccount();
+        if(temp instanceof SaverAccount) {
+            SaverAccount saverAccount = (SaverAccount)temp;
+            saverAccountList.deleteSaverAccount(saverAccount);
+        }
+        else if(temp instanceof CurrentAccount) {
+            CurrentAccount currentAccount = (CurrentAccount)temp;
+            currentAccountList.deleteCurrentAccount(currentAccount);
+        }
+        else {
+            JuniorAccount juniorAccount = (JuniorAccount)temp;
+            juniorAccountList.deleteJuniorAccount(juniorAccount);
+        }
+    }
+
     //todo close
-    //todo logout
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框
 }
