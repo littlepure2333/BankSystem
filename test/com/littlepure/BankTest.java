@@ -112,4 +112,22 @@ class BankTest {
         System.out.println(result);
         assertEquals(amount, (previousBalance - Bank.getAccount().getBalance()));
     }
+
+    @Test
+    void testSuspend() {
+        long accNo = 1557647912110L;
+        int PIN = 2233;
+        Bank.logIn(accNo, PIN);
+        Bank.suspend();
+        assertTrue(Bank.getAccount().getSuspended());
+    }
+
+    @Test
+    void testReinstate() {
+        long accNo = 1557647912110L;
+        int PIN = 2233;
+        Bank.logIn(accNo, PIN);
+        Bank.reinstate();
+        assertFalse(Bank.getAccount().getSuspended());
+    }
 }

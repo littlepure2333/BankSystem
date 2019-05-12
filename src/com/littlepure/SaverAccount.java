@@ -9,7 +9,7 @@ public class SaverAccount extends BankAccount{
 
     public static final int MINIMUM_PERIOD_OF_NOTICE = 3;
     public static final int WITHDRAWAL_IS_NOT_ALLOWED = 2;
-    public static final int HAS_NOT_NOTICED = 4;
+    public static final int HAS_NOT_NOTICED = 3;
 
     public SaverAccount() {
 

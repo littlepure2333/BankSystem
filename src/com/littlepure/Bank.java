@@ -238,6 +238,15 @@ public class Bank {
         update();
     }
 
+    /**
+     * 取钱，并自动更新到本地
+     * 要在登陆之后调用
+     * @param amount
+     * @return WITHDRAW_SUCCESS = 0 /
+     * EXCEED_OVERDRAFT_LIMIT = 1 /
+     * WITHDRAWAL_IS_NOT_ALLOWED = 2 /
+     * HAS_NOT_NOTICED = 3
+     */
     public static int withdraw(double amount) {
         int result;
         // 如果是saverAccount,withdraw方法不一样
@@ -262,11 +271,29 @@ public class Bank {
         return result;
     }
 
+    /**
+     * 登出，所有操作完成后等应该立即调用此函数
+     */
+    public static void logOut() {
+        setAccount(null);
+    }
+
+    public static void suspend() {
+        getAccount().suspend();
+        update();
+    }
+
+    public static void reinstate() {
+        getAccount().reinstate();
+        update();
+    }
+
     //todo check suspended
     //todo deposit
     //todo withdraw
     //todo suspend
     //todo reinstate
     //todo close
+    //todo logout
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框
 }
