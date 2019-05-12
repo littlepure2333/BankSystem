@@ -90,4 +90,26 @@ class BankTest {
         assertEquals(PIN3, Bank.getAccount().getPIN());
         assertTrue(Bank.logIn(Bank.getAccount().getAccNo(), PIN3));
     }
+
+    @Test
+    void deposit() {
+        long accNo = 1557647912110L;
+        int PIN = 2233;
+        int amount = 1000;
+        Bank.logIn(accNo, PIN);
+        Bank.deposit(amount, true);
+        assertEquals(amount, Bank.getAccount().getBalance());
+    }
+
+    @Test
+    void withdraw() {
+        long accNo = 1557647912110L;
+        int PIN = 2233;
+        int amount = 10;
+        Bank.logIn(accNo, PIN);
+        double previousBalance = Bank.getAccount().getBalance();
+        int result = Bank.withdraw(amount);
+        System.out.println(result);
+        assertEquals(amount, (previousBalance - Bank.getAccount().getBalance()));
+    }
 }

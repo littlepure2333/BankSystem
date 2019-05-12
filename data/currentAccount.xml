@@ -333,6 +333,13 @@
      </void>
     </void>
     <void class="com.littlepure.BankAccount" method="getField">
+     <string>balance</string>
+     <void method="set">
+      <object idref="CurrentAccount7"/>
+      <double>970.0</double>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
      <string>limit</string>
      <void method="set">
       <object idref="CurrentAccount7"/>

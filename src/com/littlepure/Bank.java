@@ -152,6 +152,8 @@ public class Bank {
     /**
      * 登陆,并且加载到当前账户，只有账号密码都对才返回正确
      * 账号不存在，密码错误都会返回false
+     * 除了注册之外的操作都应先登陆
+     * 登陆后应该检查是否账户被停用
      * @param accNo -账号
      * @param PIN -密码
      * @return true/false
@@ -209,5 +211,62 @@ public class Bank {
         juniorAccountList.update();
     }
 
+    /**
+     * 获取当前账户余额
+     * @return balance
+     */
+    public static double getBalance() {
+        return getAccount().getBalance();
+    }
+
+    /**
+     * 登陆后立即检查是否被停用
+     * @return true/false
+     */
+    public static boolean isSuspended() {
+        return getAccount().getSuspended();
+    }
+
+    /**
+     * 存钱,并且自动更新到本地
+     * @param amount -金额
+     * @param cleared -是否cleared
+     * @return
+     */
+    public static void deposit(double amount, boolean cleared) {
+        getAccount().deposit(amount, cleared);
+        update();
+    }
+
+    public static int withdraw(double amount) {
+        int result;
+        // 如果是saverAccount,withdraw方法不一样
+        if(getAccount() instanceof SaverAccount) {
+            SaverAccount saverAccount = (SaverAccount) getAccount();
+            // 如果申请过notice
+            if(saverAccount.getWithdrawalIsAllowed()) {
+                result = saverAccount.withdraw(amount);
+                update();
+            }
+            else {
+                result = SaverAccount.HAS_NOT_NOTICED;
+                update();
+            }
+
+        }
+        // 要不然就是current或junior
+        else {
+            result = getAccount().withdraw(amount);
+            update();
+        }
+        return result;
+    }
+
+    //todo check suspended
+    //todo deposit
+    //todo withdraw
+    //todo suspend
+    //todo reinstate
+    //todo close
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框
 }

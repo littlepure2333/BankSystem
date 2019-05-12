@@ -9,6 +9,7 @@ public class SaverAccount extends BankAccount{
 
     public static final int MINIMUM_PERIOD_OF_NOTICE = 3;
     public static final int WITHDRAWAL_IS_NOT_ALLOWED = 2;
+    public static final int HAS_NOT_NOTICED = 4;
 
     public SaverAccount() {
 
@@ -30,7 +31,7 @@ public class SaverAccount extends BankAccount{
 
     /**
      * 获取现在是否能允许withdraw
-     * 会自动更新允许状态
+     * 调用时会自动更新允许状态并返回
      * @return true/false
      */
     public boolean getWithdrawalIsAllowed() {
