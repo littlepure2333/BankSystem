@@ -1,5 +1,7 @@
 package views;
 
+import com.littlepure.Bank;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

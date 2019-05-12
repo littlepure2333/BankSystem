@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.8.0_211" class="java.beans.XMLDecoder">
+<java version="1.8.0_201" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="com.littlepure.JuniorAccount" id="JuniorAccount0">
@@ -61,6 +61,84 @@
      <void method="set">
       <object idref="JuniorAccount1"/>
       <int>3344</int>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.littlepure.JuniorAccount" id="JuniorAccount2">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="JuniorAccount2"/>
+      <long>222222</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="JuniorAccount2"/>
+      <string>hahahapure</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="JuniorAccount2"/>
+      <string>Rizhao</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="JuniorAccount2"/>
+      <string>2008.6.3</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="JuniorAccount2"/>
+      <int>1234</int>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>suspended</string>
+     <void method="set">
+      <object idref="JuniorAccount2"/>
+      <boolean>true</boolean>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.littlepure.JuniorAccount" id="JuniorAccount3">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="JuniorAccount3"/>
+      <long>1557694881346</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="JuniorAccount3"/>
+      <string>testjunior</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="JuniorAccount3"/>
+      <string>junioree</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="JuniorAccount3"/>
+      <string>2016-8-5</string>
      </void>
     </void>
    </object>

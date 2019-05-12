@@ -1,4 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.8.0_211" class="java.beans.XMLDecoder">
- <object class="java.util.ArrayList"/>
+<java version="1.8.0_201" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="com.littlepure.CurrentAccount" id="CurrentAccount0">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="CurrentAccount0"/>
+      <long>1557694790483</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="CurrentAccount0"/>
+      <string>test</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="CurrentAccount0"/>
+      <string>test test</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="CurrentAccount0"/>
+      <string>2010-2-3</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>limit</string>
+     <void method="set">
+      <object idref="CurrentAccount0"/>
+      <double>2000.0</double>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.littlepure.CurrentAccount" id="CurrentAccount1">
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="CurrentAccount1"/>
+      <long>1557694856246</long>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="CurrentAccount1"/>
+      <string>test</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="CurrentAccount1"/>
+      <string>tesssss</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="CurrentAccount1"/>
+      <string>2011-2-4</string>
+     </void>
+    </void>
+    <void class="com.littlepure.BankAccount" method="getField">
+     <string>limit</string>
+     <void method="set">
+      <object idref="CurrentAccount1"/>
+      <double>2000.0</double>
+     </void>
+    </void>
+   </object>
+  </void>
+ </object>
 </java>

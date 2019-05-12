@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class CurrentAccountList extends DataIO{
     public ArrayList<CurrentAccount> currentAccountList;
-    private static final String FILE_LOCATION = "C:/Users/小纯洁/IdeaProjects/BankSystem/data/currentAccount.xml";
+    private static final String FILE_LOCATION = "./data/currentAccount.xml";
 
     public CurrentAccountList() {
     }

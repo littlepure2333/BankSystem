@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class SaverAccountList extends DataIO{
     public ArrayList<SaverAccount> saverAccountList;
-    private static final String FILE_LOCATION = "C:/Users/小纯洁/IdeaProjects/BankSystem/data/saverAccount.xml";
+    private static final String FILE_LOCATION = "./data/saverAccount.xml";
 
     public SaverAccountList() {
     }
