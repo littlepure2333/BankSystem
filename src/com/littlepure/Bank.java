@@ -1,6 +1,5 @@
 package com.littlepure;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -19,6 +18,7 @@ public class Bank {
     private static JuniorAccountList juniorAccountList = new JuniorAccountList();
     private static CurrentAccountList currentAccountList = new CurrentAccountList();
     private static SaverAccountList saverAccountList = new SaverAccountList();
+    private static BankAccount account;
 
     static {
         juniorAccountList.loadList();
@@ -37,6 +37,7 @@ public class Bank {
 
     /**
      * 给用户注册，选择类型
+     * 并返回注册结果
      * @param name
      * @param address
      * @param DOB -Date of birth
@@ -51,6 +52,7 @@ public class Bank {
                         if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
                             JuniorAccount juniorAccount = new JuniorAccount(name, address, DOB);
                             juniorAccountList.addJuniorAccount(juniorAccount);
+                            setAccount(juniorAccount);
                             return RIGISTER_SUCCESS;
                         }
                         else {
@@ -64,6 +66,7 @@ public class Bank {
                     if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
                         CurrentAccount currentAccount = new CurrentAccount(name, address, DOB);
                         currentAccountList.addCurrentAccount(currentAccount);
+                        setAccount(currentAccount);
                         return RIGISTER_SUCCESS;
                     }
                     else {
@@ -73,6 +76,7 @@ public class Bank {
                     if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
                         SaverAccount saverAccount = new SaverAccount(name, address, DOB);
                         saverAccountList.addSaverAccount(saverAccount);
+                        setAccount(saverAccount);
                         return RIGISTER_SUCCESS;
                     }
                     else {
@@ -110,6 +114,11 @@ public class Bank {
         }
     }
 
+    /**
+     * 判断是不是Junior
+     * @param str -Date of birth
+     * @return true/false
+     */
     public static boolean isJunior(String str) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Calendar now = Calendar.getInstance();
@@ -132,6 +141,37 @@ public class Bank {
         }
     }
 
-    //todo 创建 Junior Account时检查年龄
-    //todo 创建账户时让用户设置密码
+    public static BankAccount getAccount() {
+        return account;
+    }
+
+    public static void setAccount(BankAccount account) {
+        Bank.account = account;
+    }
+
+    public static boolean logIn(long accNo, int PIN) {
+        BankAccount temp = saverAccountList.findAccountByNo(accNo);
+        if(temp != null) {
+            if(temp.identify(PIN)) {
+                setAccount(temp);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        //todo current
+        //todo saver
+        return false;
+    }
+
+    /**
+     * 注册成功后紧接着调用这个函数用来设置密码
+     * @param PIN -密码
+     */
+    public static void setPIN(int PIN) {
+        getAccount().setPIN(PIN);
+    }
+
+    //todo 检查输入格式 可以在GUI上设置只能接受数字的框
 }

@@ -26,7 +26,7 @@ public abstract class BankAccount {
 	 * @param DOB
 	 */
 	BankAccount(String name, String address, String DOB) {
-		//todo 生成账号
+		this.accNo = Bank.generateNo();
 		this.name = name;
 		this.address = address;
 		this.DOB = DOB;
@@ -101,6 +101,8 @@ public abstract class BankAccount {
 	public void setAccNo(long accNo) {
 		this.accNo = accNo;
 	}
+
+
 
 	// deposit method
 //	public void deposit(double amount) {

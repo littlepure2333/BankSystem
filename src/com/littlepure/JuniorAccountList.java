@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class JuniorAccountList extends DataIO{
     public ArrayList<JuniorAccount> juniorAccountList;
-    private static final String FILE_LOCATION = "./data/juniorAccount.xml";
+    private static final String FILE_LOCATION = "C:/Users/小纯洁/IdeaProjects/BankSystem/data/juniorAccount.xml";
 
     public JuniorAccountList() {
     }
@@ -20,22 +20,45 @@ public class JuniorAccountList extends DataIO{
 
     void addJuniorAccount(JuniorAccount juniorAccount) {
         juniorAccountList.add(juniorAccount);
-        save(juniorAccountList, FILE_LOCATION);
+        save(this.juniorAccountList, FILE_LOCATION);
     }
 
-    void deleteJuniorAccount(int accNo) {
-        Iterator<JuniorAccount> iter = juniorAccountList.iterator();
-        while(iter.hasNext()) {
-            JuniorAccount juniorAccount = iter.next();
-            if(juniorAccount.getAccNo() == accNo) {
-                iter.remove();
-                save(juniorAccountList, FILE_LOCATION);
-            }
-        }
+    /**
+     * close账户时才使用，把这个账户删掉
+     * 使用时
+     * @param juniorAccount -想要删除的账号
+     */
+    void deleteJuniorAccount(JuniorAccount juniorAccount) {
+//        Iterator<JuniorAccount> iter = juniorAccountList.iterator();
+//        while(iter.hasNext()) {
+//            JuniorAccount juniorAccount = iter.next();
+//            if(juniorAccount.getAccNo() == accNo) {
+//                iter.remove();
+//                save(juniorAccountList, FILE_LOCATION);
+//            }
+//        }
+        juniorAccountList.remove(juniorAccount);
+        save(juniorAccountList, FILE_LOCATION);
     }
 
     void resetList() {
         this.juniorAccountList = new ArrayList<JuniorAccount>();
         save(juniorAccountList, FILE_LOCATION);
+    }
+
+    /**
+     * 根据accNo找account
+     * @param accNo -账号
+     * @return juniorAccount
+     */
+    JuniorAccount findAccountByNo(long accNo) {
+        Iterator<JuniorAccount> iter = juniorAccountList.iterator();
+        while(iter.hasNext()) {
+            JuniorAccount juniorAccount = iter.next();
+            if(juniorAccount.getAccNo() == accNo) {
+                return juniorAccount;
+            }
+        }
+        return null;
     }
 }

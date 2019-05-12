@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CurrentAccountListTest {
 
     @BeforeEach
@@ -15,9 +13,6 @@ class CurrentAccountListTest {
 //        CurrentAccount currentAccount2 = new CurrentAccount("bigpure","Rizhao","2008.6.3");
     }
 
-    /**
-     * This test can create a new "currentList.xml"
-     */
     @Test
     void testCreateCurrentAccountList() {
         CurrentAccountList list = new CurrentAccountList();
@@ -48,7 +43,7 @@ class CurrentAccountListTest {
     void testDeleteCurrentAccount() {
         CurrentAccountList list = new CurrentAccountList();
         list.loadList();
-        list.deleteCurrentAccount(222222);
+        list.deleteCurrentAccount(list.findAccountByNo(222222));
         System.out.println("4");
     }
 }

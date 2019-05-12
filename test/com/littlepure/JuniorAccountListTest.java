@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class JuniorAccountListTest {
 
     @BeforeEach
@@ -45,7 +43,7 @@ class JuniorAccountListTest {
     void testDeleteJuniorAccount() {
         JuniorAccountList list = new JuniorAccountList();
         list.loadList();
-        list.deleteJuniorAccount(222222);
+        list.deleteJuniorAccount(list.findAccountByNo(222222));
         System.out.println("4");
     }
 }
