@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class JuniorAccountList extends DataIO{
     public ArrayList<JuniorAccount> juniorAccountList;
-    private static final String FILE_LOCATION = "./data/juniorAccount.txt";
+    private static final String FILE_LOCATION = "./data/juniorAccount.xml";
 
     public JuniorAccountList() {
     }

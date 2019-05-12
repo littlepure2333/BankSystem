@@ -2,6 +2,9 @@ package com.littlepure;
 
 public class JuniorAccount extends BankAccount{
 
+    public JuniorAccount() {
+
+    }
 
     /**
      * 子类必须override构造器，因为账号类型决定limit

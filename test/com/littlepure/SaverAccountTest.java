@@ -13,4 +13,24 @@ class SaverAccountTest {
         assertEquals("as", saverAccount.getAddress());
         assertEquals("1998.3.4", saverAccount.getDOB());
     }
+
+    //todo finish tests
+    @Test
+    void getWithdrawalIsAllowed() {
+    }
+
+    @Test
+    void getNoticeDate() {
+    }
+
+    @Test
+    void applyNotice() {
+        SaverAccount saverAccount = new SaverAccount("qw", "as","1998.3.4");
+        assertFalse(saverAccount.applyNotice(2));
+        assertTrue(saverAccount.applyNotice(3));
+    }
+
+    @Test
+    void withdraw() {
+    }
 }

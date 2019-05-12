@@ -15,7 +15,38 @@ class BankTest {
     void testIsValidDate() {
         String str1 = "2013-04-4";
         String str2 = "2013-2-30";
+        String str3 = "2023-4-15";
         assertTrue(Bank.isValidDate(str1));
         assertFalse(Bank.isValidDate(str2));
+        assertFalse(Bank.isValidDate(str3));
+    }
+
+    @Test
+    void testIsJunior() {
+        String str1 = "2013-04-4";
+        String str2 = "2000-04-4";
+        assertTrue(Bank.isJunior(str1));
+        assertFalse(Bank.isJunior(str2));
+    }
+
+    @Test
+    void testRegister() {
+        String name1 = "fsy";
+        String address1 = "bupt";
+        String DOB1 = "1997-4-23";
+        Bank.register(name1, address1, DOB1, Bank.CURRENT);
+        System.out.println("1");
+
+        String name2 = "fsysb";
+        String address2 = "IOT";
+        String DOB2 = "1998-6-6";
+        Bank.register(name2, address2, DOB2, Bank.SAVER);
+        System.out.println("2");
+
+        String name3 = "fsyson";
+        String address3 = "kindergarten";
+        String DOB3 = "2016-6-1";
+        Bank.register(name3, address3, DOB3, Bank.JUNIOR);
+        System.out.println("3");
     }
 }

@@ -2,6 +2,10 @@ package com.littlepure;
 
 public class CurrentAccount extends BankAccount {
 
+	public CurrentAccount() {
+
+	}
+
 	/**
 	 * 子类必须override构造器，因为账号类型决定limit
 	 *
