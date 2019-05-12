@@ -88,23 +88,29 @@ public class OpenAccount extends JPanel {
 				}
 				int result = Bank.register(name, address, DOB, type);
 				if(result == Bank.REGISTER_SUCCESS) {
-					JOptionPane.showMessageDialog(null,
-							"Register success!");
+					frame.getContentPane().remove(thisPanel);
+					frame.getContentPane().add(new SetPIN(frame));
 				}
 				else if(result == Bank.INCORRECT_FORMAT) {
 					JOptionPane.showMessageDialog(null,
 							"Incorrect format of date! i.e. 2000-2-3");
+					frame.getContentPane().remove(thisPanel);
+					frame.getContentPane().add(new Menu(frame));
 				}
 				else if(result == Bank.NOT_JUNIOR) {
 					JOptionPane.showMessageDialog(null,
 							"You are not under 16. Can't open a junior account");
+					frame.getContentPane().remove(thisPanel);
+					frame.getContentPane().add(new Menu(frame));
 				}
 				else if(result == Bank.POOR_CREDIT_HISTORY) {
 					JOptionPane.showMessageDialog(null,
 							"You have a poor credit history. Can't open account");
+					frame.getContentPane().remove(thisPanel);
+					frame.getContentPane().add(new Menu(frame));
 				}
-				frame.getContentPane().remove(thisPanel);
-				frame.getContentPane().add(new Menu(frame));
+				//frame.getContentPane().remove(thisPanel);
+				//frame.getContentPane().add(new Menu(frame));
 				frame.validate();
 				frame.repaint();
 			}

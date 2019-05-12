@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/views/LogIn.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/views/Menu.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/views/ReinstateAccount.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/views/SetPIN.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/views/Withdraw.java" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
