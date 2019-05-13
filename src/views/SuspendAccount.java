@@ -1,22 +1,12 @@
 package views;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import com.littlepure.Bank;
+
+import javax.swing.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-/**
- * 
- */
-
-/**
- * @author ��еʦ
- *
- */
 public class SuspendAccount extends JPanel {
 
 	/**
@@ -34,6 +24,15 @@ public class SuspendAccount extends JPanel {
 		JButton btnYes = new JButton("Yes");
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(Bank.isSuspended()) {
+					JOptionPane.showMessageDialog(null,
+							"You have suspended already!");
+				}
+				else {
+					Bank.suspend();
+					JOptionPane.showMessageDialog(null,
+							"Suspend success!");
+				}
 				frame.getContentPane().remove(thisPanel);
 				frame.getContentPane().add(new Menu(frame));
 				frame.validate();

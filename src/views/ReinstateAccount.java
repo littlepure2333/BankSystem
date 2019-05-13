@@ -1,13 +1,11 @@
 package views;
 
-import javax.swing.JPanel;
+import com.littlepure.Bank;
+
+import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 /**
  * 
@@ -34,6 +32,15 @@ public class ReinstateAccount extends JPanel {
 		JButton btnYes = new JButton("Yes");
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(Bank.isSuspended()) {
+					Bank.reinstate();
+					JOptionPane.showMessageDialog(null,
+							"Reinstate success!");
+				}
+				else {
+					JOptionPane.showMessageDialog(null,
+							"You haven't been suspended yet!");
+				}
 				frame.getContentPane().remove(thisPanel);
 				frame.getContentPane().add(new Menu(frame));
 				frame.validate();
