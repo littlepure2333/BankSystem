@@ -46,7 +46,7 @@ public class Bank {
         long nowDate = new Date().getTime();
         return nowDate;
     }
-
+///todo 开户需要最小金额
     /**
      * 给用户注册，选择账户类型并返回注册结果
      * 注册成功后会使当前账户变成刚注册的账户
@@ -231,7 +231,7 @@ public class Bank {
     public static double getBalance() {
         return getAccount().getBalance();
     }
-//todo 检查是否每个操作都调用此函数
+
     /**
      * 登陆后立即检查是否被停用
      * @return true/false
@@ -268,17 +268,6 @@ public class Bank {
             result = saverAccount.withdraw(amount);
             update();
             return result;
-            //todo 删除
-//            // 如果申请过notice
-//            if(result == SaverAccount.WITHDRAW_SUCCESS) {
-//                result = saverAccount.withdraw(amount);
-//                update();
-//            }
-//            else {
-//                result = SaverAccount.HAS_NOT_NOTICED;
-//                update();
-//            }
-
         }
         // 要不然就是current或junior
         else {
@@ -391,7 +380,20 @@ public class Bank {
         return saverAccount.haveApplyNotice();
     }
 
-    //todo notice
+    /**
+     * 判断是否可以注销账号
+     * 当有balance或uncleared funds没结清的时候不能注销
+     * @return tru/false
+     */
+    public static boolean canClose() {
+        if((getAccount().getBalance() == 0) &&
+                (getAccount().getUnclearedFunds() == 0)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框
-    //todo close必须结清
 }

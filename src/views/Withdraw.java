@@ -68,36 +68,36 @@ public class Withdraw extends JPanel {
 							"Your account has been suspended!");
 					frame.getContentPane().remove(thisPanel);
 					frame.getContentPane().add(new Menu(frame));
-					frame.validate();
-					frame.repaint();
 				}
-				double amount = Double.parseDouble(amountInput.getText());
-				int result = Bank.withdraw(amount);
-				if(result == SaverAccount.WITHDRAW_SUCCESS) {
-					JOptionPane.showMessageDialog(null,
-							"Withdraw success!");
-					frame.getContentPane().remove(thisPanel);
-					frame.getContentPane().add(new Menu(frame));
-				}
-				else if(result == SaverAccount.EXCEED_OVERDRAFT_LIMIT) {
-					JOptionPane.showMessageDialog(null,
-							"Exceeding your overdraft limit!");
-					frame.getContentPane().remove(thisPanel);
-					frame.getContentPane().add(new Menu(frame));
-				}
-				// 如果还没到noticeday
-				else if(result == SaverAccount.WITHDRAWAL_IS_NOT_ALLOWED) {
-					JOptionPane.showMessageDialog(null,
-							"Withdraw is not allowed until " + Bank.getNoticeDate() + "!");
-					frame.getContentPane().remove(thisPanel);
-					frame.getContentPane().add(new Menu(frame));
-				}
-				// 否则还没申请notice，让用户申请
 				else {
-					JOptionPane.showMessageDialog(null,
-							"You should apply a notice first because of saver account");
-					frame.getContentPane().remove(thisPanel);
-					frame.getContentPane().add(new Notice(frame));
+					double amount = Double.parseDouble(amountInput.getText());
+					int result = Bank.withdraw(amount);
+					if(result == SaverAccount.WITHDRAW_SUCCESS) {
+						JOptionPane.showMessageDialog(null,
+								"Withdraw success!");
+						frame.getContentPane().remove(thisPanel);
+						frame.getContentPane().add(new Menu(frame));
+					}
+					else if(result == SaverAccount.EXCEED_OVERDRAFT_LIMIT) {
+						JOptionPane.showMessageDialog(null,
+								"Can't withdraw due to exceeding overdraft limit!");
+						frame.getContentPane().remove(thisPanel);
+						frame.getContentPane().add(new Menu(frame));
+					}
+					// 如果还没到noticeday
+					else if(result == SaverAccount.WITHDRAWAL_IS_NOT_ALLOWED) {
+						JOptionPane.showMessageDialog(null,
+								"Withdraw is not allowed until " + Bank.getNoticeDate() + "!");
+						frame.getContentPane().remove(thisPanel);
+						frame.getContentPane().add(new Menu(frame));
+					}
+					// 否则还没申请notice，让用户申请
+					else {
+						JOptionPane.showMessageDialog(null,
+								"You should apply a notice first because of saver account");
+						frame.getContentPane().remove(thisPanel);
+						frame.getContentPane().add(new Notice(frame));
+					}
 				}
 				frame.validate();
 				frame.repaint();

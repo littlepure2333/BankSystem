@@ -1,12 +1,11 @@
 package views;
 
+import com.littlepure.Bank;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  * 
@@ -33,6 +32,15 @@ public class CloseAccount extends JPanel {
 		JButton btnYes = new JButton("Yes");
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(Bank.canClose()) {
+					Bank.closeAccount();
+					JOptionPane.showMessageDialog(null,
+							"Close account success!");
+				}
+				else {
+					JOptionPane.showMessageDialog(null,
+							"You can't close account until your balance is cleared");
+				}
 				frame.getContentPane().remove(thisPanel);
 				frame.getContentPane().add(new Menu(frame));
 				frame.validate();
