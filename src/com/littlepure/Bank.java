@@ -231,7 +231,7 @@ public class Bank {
     public static double getBalance() {
         return getAccount().getBalance();
     }
-
+//todo 检查是否每个操作都调用此函数
     /**
      * 登陆后立即检查是否被停用
      * @return true/false
@@ -265,15 +265,19 @@ public class Bank {
         // 如果是saverAccount,withdraw方法不一样
         if(getAccount() instanceof SaverAccount) {
             SaverAccount saverAccount = (SaverAccount) getAccount();
-            // 如果申请过notice
-            if(saverAccount.getWithdrawalIsAllowed()) {
-                result = saverAccount.withdraw(amount);
-                update();
-            }
-            else {
-                result = SaverAccount.HAS_NOT_NOTICED;
-                update();
-            }
+            result = saverAccount.withdraw(amount);
+            update();
+            return result;
+            //todo 删除
+//            // 如果申请过notice
+//            if(result == SaverAccount.WITHDRAW_SUCCESS) {
+//                result = saverAccount.withdraw(amount);
+//                update();
+//            }
+//            else {
+//                result = SaverAccount.HAS_NOT_NOTICED;
+//                update();
+//            }
 
         }
         // 要不然就是current或junior
@@ -372,6 +376,22 @@ public class Bank {
         return null;
     }
 
+    /**
+     * 查询当前用户是否可以取款
+     * 仅当当前账户是saver是调用
+     * @return true/false
+     */
+    public static boolean getWithdrawalIsAllowed() {
+        SaverAccount saverAccount = (SaverAccount)Bank.getAccount();
+        return saverAccount.getWithdrawalIsAllowed();
+    }
+
+    public static boolean haveApplyNotice() {
+        SaverAccount saverAccount = (SaverAccount)Bank.getAccount();
+        return saverAccount.haveApplyNotice();
+    }
+
     //todo notice
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框
+    //todo close必须结清
 }

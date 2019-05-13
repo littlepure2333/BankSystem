@@ -35,7 +35,8 @@ public class SaverAccount extends BankAccount{
      * @return true/false
      */
     public boolean getWithdrawalIsAllowed() {
-        if(getNoticeDate() != null) {
+        // 如果申请过notice
+        if(haveApplyNotice()) {
             // 如果当前日期在noticeDate之后，允许取款
             if(new Date().after(getNoticeDate())) {
                 setWithdrawalIsAllowed(true);
@@ -86,7 +87,7 @@ public class SaverAccount extends BankAccount{
      * 取钱成功后会重置notice状态
      * 没到notice时间取不了钱
      * @param amount
-     * @return 0 -成功 / 1 -超过limit / 2 -没到notice时间
+     * @return 0 -成功 / 1 -超过limit / 2 -没到notice时间 / 3 -没申请notice
      */
     @Override
     public int withdraw(double amount) {
@@ -96,9 +97,25 @@ public class SaverAccount extends BankAccount{
             setWithdrawalIsAllowed(false);
             return super.withdraw(amount);
         }
-        else {
+        if(haveApplyNotice()){
             return WITHDRAWAL_IS_NOT_ALLOWED;
         }
+        else {
+            return HAS_NOT_NOTICED;
+        }
 
+    }
+
+    /**
+     * 判断账户有没有申请notice
+     * @return true/dalse
+     */
+    public boolean haveApplyNotice() {
+        if(noticeDate != null) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

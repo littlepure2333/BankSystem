@@ -55,6 +55,16 @@ public class SetPIN extends JPanel {
 		btnConfirm.setBounds(243, 329, 113, 27);
 		add(btnConfirm);
 
+		JTextPane textPane = new JTextPane();
+		long accNo = Bank.getAccount().getAccNo();
+		textPane.setText(Long.toString(accNo));
+		textPane.setBounds(331, 51, 120, 24);
+		add(textPane);
+
+		JLabel lblYourAccountNo = new JLabel("Your Account No. is");
+		lblYourAccountNo.setBounds(152, 54, 152, 18);
+		add(lblYourAccountNo);
+
 	}
 
 }

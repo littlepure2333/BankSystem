@@ -2,11 +2,7 @@ package views;
 
 import com.littlepure.Bank;
 
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -67,10 +63,15 @@ public class LogIn extends JPanel {
 				int PIN = Integer.parseInt(PINInput.getText());
 				// 如果登陆成功
 				if(Bank.logIn(accNo, PIN)) {
-
+					frame.getContentPane().remove(thisPanel);
+					frame.getContentPane().add(nextPanel);
 				}
-				frame.getContentPane().remove(thisPanel);
-				frame.getContentPane().add(nextPanel);
+				else {
+					JOptionPane.showMessageDialog(null,
+							"Wrong account or PIN!");
+					frame.getContentPane().remove(thisPanel);
+					frame.getContentPane().add(new Menu(frame));
+				}
 				frame.validate();
 				frame.repaint();
 			}
