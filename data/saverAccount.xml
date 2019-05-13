@@ -42,46 +42,34 @@
   </void>
   <void method="add">
    <object class="com.littlepure.models.SaverAccount" id="SaverAccount1">
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>accNo</string>
+    <void class="com.littlepure.models.SaverAccount" method="getField">
+     <string>noticeDate</string>
      <void method="set">
       <object idref="SaverAccount1"/>
-      <long>222222</long>
+      <object class="java.util.Date">
+       <long>1557922300589</long>
+      </object>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>name</string>
      <void method="set">
       <object idref="SaverAccount1"/>
-      <string>hahahapure</string>
+      <string>测试notice账号</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>address</string>
      <void method="set">
       <object idref="SaverAccount1"/>
-      <string>Rizhao</string>
+      <string>haha home</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>DOB</string>
      <void method="set">
       <object idref="SaverAccount1"/>
-      <string>2008.6.3</string>
-     </void>
-    </void>
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>PIN</string>
-     <void method="set">
-      <object idref="SaverAccount1"/>
-      <int>1234</int>
-     </void>
-    </void>
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>suspended</string>
-     <void method="set">
-      <object idref="SaverAccount1"/>
-      <boolean>true</boolean>
+      <string>1970-4-23</string>
      </void>
     </void>
    </object>
@@ -93,7 +81,7 @@
      <void method="set">
       <object idref="SaverAccount2"/>
       <object class="java.util.Date">
-       <long>1557922300589</long>
+       <long>1557922439313</long>
       </object>
      </void>
     </void>
@@ -127,8 +115,15 @@
      <void method="set">
       <object idref="SaverAccount3"/>
       <object class="java.util.Date">
-       <long>1557922439313</long>
+       <long>1557922506180</long>
       </object>
+     </void>
+    </void>
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="SaverAccount3"/>
+      <long>1557663306059</long>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
@@ -161,7 +156,7 @@
      <void method="set">
       <object idref="SaverAccount4"/>
       <object class="java.util.Date">
-       <long>1557922506180</long>
+       <long>1557922567156</long>
       </object>
      </void>
     </void>
@@ -169,7 +164,7 @@
      <string>accNo</string>
      <void method="set">
       <object idref="SaverAccount4"/>
-      <long>1557663306059</long>
+      <long>1557663340409</long>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
@@ -202,7 +197,7 @@
      <void method="set">
       <object idref="SaverAccount5"/>
       <object class="java.util.Date">
-       <long>1557922567156</long>
+       <long>1557922714805</long>
       </object>
      </void>
     </void>
@@ -210,7 +205,7 @@
      <string>accNo</string>
      <void method="set">
       <object idref="SaverAccount5"/>
-      <long>1557663340409</long>
+      <long>1557663514621</long>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
@@ -238,41 +233,39 @@
   </void>
   <void method="add">
    <object class="com.littlepure.models.SaverAccount" id="SaverAccount6">
-    <void class="com.littlepure.models.SaverAccount" method="getField">
-     <string>noticeDate</string>
-     <void method="set">
-      <object idref="SaverAccount6"/>
-      <object class="java.util.Date">
-       <long>1557922714805</long>
-      </object>
-     </void>
-    </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>accNo</string>
      <void method="set">
       <object idref="SaverAccount6"/>
-      <long>1557663514621</long>
+      <long>1557604924165</long>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>name</string>
      <void method="set">
       <object idref="SaverAccount6"/>
-      <string>测试notice账号</string>
+      <string>testsaver</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>address</string>
      <void method="set">
       <object idref="SaverAccount6"/>
-      <string>haha home</string>
+      <string>saver</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>DOB</string>
      <void method="set">
       <object idref="SaverAccount6"/>
-      <string>1970-4-23</string>
+      <string>1989-6-24</string>
+     </void>
+    </void>
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>balance</string>
+     <void method="set">
+      <object idref="SaverAccount6"/>
+      <double>101648.0</double>
      </void>
     </void>
    </object>
@@ -283,35 +276,42 @@
      <string>accNo</string>
      <void method="set">
       <object idref="SaverAccount7"/>
-      <long>1557604924165</long>
+      <long>1557757211211</long>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>name</string>
      <void method="set">
       <object idref="SaverAccount7"/>
-      <string>testsaver</string>
+      <string>credit</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>address</string>
      <void method="set">
       <object idref="SaverAccount7"/>
-      <string>saver</string>
+      <string>credit</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>DOB</string>
      <void method="set">
       <object idref="SaverAccount7"/>
-      <string>1989-6-24</string>
+      <string>2012-9-8</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>balance</string>
      <void method="set">
       <object idref="SaverAccount7"/>
-      <double>101648.0</double>
+      <double>50.0</double>
+     </void>
+    </void>
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="SaverAccount7"/>
+      <int>678</int>
      </void>
     </void>
    </object>
@@ -322,87 +322,41 @@
      <string>accNo</string>
      <void method="set">
       <object idref="SaverAccount8"/>
-      <long>1557757211211</long>
-     </void>
-    </void>
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>name</string>
-     <void method="set">
-      <object idref="SaverAccount8"/>
-      <string>credit</string>
-     </void>
-    </void>
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>address</string>
-     <void method="set">
-      <object idref="SaverAccount8"/>
-      <string>credit</string>
-     </void>
-    </void>
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>DOB</string>
-     <void method="set">
-      <object idref="SaverAccount8"/>
-      <string>2012-9-8</string>
-     </void>
-    </void>
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>balance</string>
-     <void method="set">
-      <object idref="SaverAccount8"/>
-      <double>50.0</double>
-     </void>
-    </void>
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>PIN</string>
-     <void method="set">
-      <object idref="SaverAccount8"/>
-      <int>678</int>
-     </void>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="com.littlepure.models.SaverAccount" id="SaverAccount9">
-    <void class="com.littlepure.models.BankAccount" method="getField">
-     <string>accNo</string>
-     <void method="set">
-      <object idref="SaverAccount9"/>
       <long>1557765444487</long>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>name</string>
      <void method="set">
-      <object idref="SaverAccount9"/>
+      <object idref="SaverAccount8"/>
       <string>jijiasib</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>address</string>
      <void method="set">
-      <object idref="SaverAccount9"/>
+      <object idref="SaverAccount8"/>
       <string>gdsbadbad</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>DOB</string>
      <void method="set">
-      <object idref="SaverAccount9"/>
+      <object idref="SaverAccount8"/>
       <string>2012-12-12</string>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>balance</string>
      <void method="set">
-      <object idref="SaverAccount9"/>
+      <object idref="SaverAccount8"/>
       <double>43500.0</double>
      </void>
     </void>
     <void class="com.littlepure.models.BankAccount" method="getField">
      <string>PIN</string>
      <void method="set">
-      <object idref="SaverAccount9"/>
+      <object idref="SaverAccount8"/>
       <int>12</int>
      </void>
     </void>

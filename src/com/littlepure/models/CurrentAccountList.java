@@ -10,45 +10,50 @@ public class CurrentAccountList extends DataIO{
     public CurrentAccountList() {
     }
 
+    /**
+     * Load local data to active account list.
+     */
     public void loadList() {
         this.currentAccountList = (ArrayList<CurrentAccount>)read(FILE_LOCATION);
     }
 
+    /**
+     * Access active account list
+     * @return account list
+     */
     public ArrayList<CurrentAccount> getCurrentAccountList() {
         return currentAccountList;
     }
 
+    /**
+     * Add account to active account list
+     * @param currentAccount account wanted to be added
+     */
     public void addCurrentAccount(CurrentAccount currentAccount) {
         currentAccountList.add(currentAccount);
         save(this.currentAccountList, FILE_LOCATION);
     }
 
     /**
-     * close账户时才使用，把这个账户删掉
-     * 使用时
-     * @param currentAccount -想要删除的账号
+     * Delete a account from active list.
+     * @param currentAccount account wanted to be deleted
      */
     public void deleteCurrentAccount(CurrentAccount currentAccount) {
-//        Iterator<CurrentAccount> iter = currentAccountList.iterator();
-//        while(iter.hasNext()) {
-//            CurrentAccount currentAccount = iter.next();
-//            if(currentAccount.getAccNo() == accNo) {
-//                iter.remove();
-//                save(currentAccountList, FILE_LOCATION);
-//            }
-//        }
         currentAccountList.remove(currentAccount);
         save(currentAccountList, FILE_LOCATION);
     }
 
+    /**
+     * Reset active account list.
+     */
     public void resetList() {
         this.currentAccountList = new ArrayList<CurrentAccount>();
         save(currentAccountList, FILE_LOCATION);
     }
 
     /**
-     * 根据accNo找account
-     * @param accNo -账号
+     * Find account by account number
+     * @param accNo account number
      * @return currentAccount
      */
     public CurrentAccount findAccountByNo(long accNo) {
@@ -63,8 +68,7 @@ public class CurrentAccountList extends DataIO{
     }
 
     /**
-     * 在账户进行更改后立即调用此函数
-     * 把更改保存到本地
+     * Save the change to local text file
      */
     public void update() {
         save(currentAccountList, FILE_LOCATION);

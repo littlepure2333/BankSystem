@@ -4,11 +4,10 @@ import java.util.Date;
 
 public class numberUtil {
     /**
-     * 生成全局独一无二的No
-     * @return
+     * Generate unique number.
+     * @return unique number
      */
     public static long generateNo() {
-        long nowDate = new Date().getTime();
-        return nowDate;
+        return new Date().getTime();
     }
 }

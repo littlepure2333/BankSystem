@@ -16,11 +16,10 @@ public class SaverAccount extends BankAccount{
     }
 
     /**
-     * 子类必须override构造器，因为账号类型决定limit
-     * 默认没有notice
-     * @param name
-     * @param address
-     * @param DOB
+     * Create a saver account
+     * @param name name of customer
+     * @param address address of customer
+     * @param DOB date of birth
      */
     public SaverAccount(String name, String address, String DOB) {
         super(name, address, DOB);

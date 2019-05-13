@@ -7,9 +7,9 @@ import java.util.Date;
 
 public class dateUtil {
     /**
-     * 判断是不是Junior
-     * @param str -Date of birth
-     * @return true/false
+     * Check if is junior.
+     * @param str Date of birth
+     * @return {@code true}/{@code false} yes or not
      */
     public static boolean isJunior(String str) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -18,9 +18,9 @@ public class dateUtil {
         formatter.setLenient(false);
         try {
             Date DOB = formatter.parse(str);
-            // 把DOB转换到now里面，因为Calendar类才可以提取年份
+            // change "DOB" to "now", cause Calendar class can extract year
             now.setTime(DOB);
-            // 如果小于16岁
+            // if under 16
             if(nowYear - now.get(Calendar.YEAR) < 16) {
                 return true;
             }
@@ -34,10 +34,10 @@ public class dateUtil {
     }
 
     /**
-     * 判断时间格式 格式必须为“YYYY-MM-dd”
-     * 并且DOB不能大于现在时间
-     * @param str
-     * @return true/false
+     * Check if time format is correct, must be “YYYY-MM-dd”.
+     * And time can't be greater than present time.
+     * @param str date of birth
+     * @return {@code true}/{@code false} yes or not
      */
     public static boolean isValidDate(String str) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

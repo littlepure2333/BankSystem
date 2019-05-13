@@ -17,15 +17,15 @@ public abstract class BankAccount {
 	public static final int WITHDRAW_SUCCESS = 0;
 	public static final int EXCEED_OVERDRAFT_LIMIT = 1;
 
-	public BankAccount() {
+	BankAccount() {
 
 	}
 
 	/**
-	 * 子类必须override构造器，因为账号类型决定limit
-	 * @param name
-	 * @param address
-	 * @param DOB
+	 * Create a Bank account, need to be overridden by subclass
+	 * @param name -name of customer
+	 * @param address -address of customer
+	 * @param DOB -date of birthday
 	 */
 	BankAccount(String name, String address, String DOB) {
 		this.accNo = numberUtil.generateNo();
@@ -37,9 +37,7 @@ public abstract class BankAccount {
 		this.suspended = false;
 	}
 
-	/**
-	 * getters
-	 */
+	// getters
 	public long getAccNo() {
 		return this.accNo;
 	}
@@ -72,23 +70,16 @@ public abstract class BankAccount {
 		return this.PIN;
 	}
 
-    /**
-     * 对账户进行操作之前必须检查账户有没有被停用
-     * 如果被停用了那么不能对这个账户进行其他操作除非重新激活账户
-     * @return true/false
-     */
 	public boolean getSuspended() {
 		return this.suspended;
 	}
 
-	/**
-	 * setters
-	 */
+	// setters
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 
-	void setUnclearedFunds(double unclearedFunds) {
+	public void setUnclearedFunds(double unclearedFunds) {
 		this.unclearedFunds = unclearedFunds;
 	}
 
@@ -105,10 +96,13 @@ public abstract class BankAccount {
 	}
 
 
-
-	// deposit method
+	/**
+	 * Deposit
+	 * @param amount -amount to deposit
+	 * @param cleared -cash or cheque
+	 */
 	public void deposit(double amount, boolean cleared) {
-		if (cleared == true) {
+		if (cleared) {
 			setBalance(this.getBalance() + amount);
 		}
 		else {
@@ -117,15 +111,18 @@ public abstract class BankAccount {
 	}
 
 	/**
-	 * clear funds
-	 * 等着外部清理系统调用
+	 * Clear uncleared funds
 	 */
 	public void clearFunds() {
 		setBalance(getBalance() + getUnclearedFunds());
 		setUnclearedFunds(0);
 	}
 
-	// withdraw method
+	/**
+	 * Withdraw and feedback result of withdrawal
+	 * @param amount -amount to withdraw
+	 * @return result of withdrawal
+	 */
 	public int withdraw(double amount) {
 		if (getBalance() - amount >= -limit) {
 			setBalance(getBalance() - amount);
@@ -137,23 +134,25 @@ public abstract class BankAccount {
 	}
 
 	/**
-	 * 验证PIN是否正确
-	 * @param PIN
-	 * @return 正确与否
+	 * Check if PIN is correct
+	 * @param PIN -personal identification number
+	 * @return {@code true}/{@code false} correct or incorrect
 	 */
 	public boolean identify(int PIN) {
-		if(getPIN() == PIN) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return getPIN() == PIN;
 	}
 
+	/**
+	 * Suspend account.
+	 * And no further transactions may occur until the account is re-instated.
+	 */
 	public void suspend() {
 		setSuspended(true);
 	}
 
+	/**
+	 * Reinstate account, to allow account to continue transactions.
+	 */
 	public void reinstate() {
 		setSuspended(false);
 	}

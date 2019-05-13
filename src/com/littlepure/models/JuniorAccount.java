@@ -7,11 +7,10 @@ public class JuniorAccount extends BankAccount{
     }
 
     /**
-     * 子类必须override构造器，因为账号类型决定limit
-     *
-     * @param name
-     * @param address
-     * @param DOB
+     * Create a junior account
+     * @param name -name of customer
+     * @param address -address of customer
+     * @param DOB d-date of birth
      */
     public JuniorAccount(String name, String address, String DOB) {
         super(name, address, DOB);
