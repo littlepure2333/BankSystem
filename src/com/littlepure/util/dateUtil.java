@@ -44,7 +44,7 @@ public class dateUtil {
         try{
             formatter.setLenient(false);
             Date DOB = formatter.parse(str);
-            //DOB不能超过当前时间
+            // DOB can't after present time
             if(DOB.before(new Date())){
                 return true;
             }

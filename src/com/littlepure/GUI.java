@@ -13,7 +13,7 @@ import java.awt.BorderLayout;
  */
 
 /**
- * @author ป๚ะตสฆ
+ * @author littlepure
  *
  */
 public class GUI {
@@ -22,6 +22,7 @@ public class GUI {
 
 	/**
 	 * Launch the application.
+	 * @param args default args
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -59,3 +60,4 @@ public class GUI {
 	}
 
 }
+//todo check input format is integer

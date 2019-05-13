@@ -23,9 +23,9 @@ public abstract class BankAccount {
 
 	/**
 	 * Create a Bank account, need to be overridden by subclass
-	 * @param name -name of customer
-	 * @param address -address of customer
-	 * @param DOB -date of birthday
+	 * @param name name of customer
+	 * @param address address of customer
+	 * @param DOB date of birthday
 	 */
 	BankAccount(String name, String address, String DOB) {
 		this.accNo = numberUtil.generateNo();
@@ -98,8 +98,8 @@ public abstract class BankAccount {
 
 	/**
 	 * Deposit
-	 * @param amount -amount to deposit
-	 * @param cleared -cash or cheque
+	 * @param amount amount to deposit
+	 * @param cleared cash or cheque
 	 */
 	public void deposit(double amount, boolean cleared) {
 		if (cleared) {
@@ -120,7 +120,7 @@ public abstract class BankAccount {
 
 	/**
 	 * Withdraw and feedback result of withdrawal
-	 * @param amount -amount to withdraw
+	 * @param amount amount to withdraw
 	 * @return result of withdrawal
 	 */
 	public int withdraw(double amount) {
@@ -135,7 +135,7 @@ public abstract class BankAccount {
 
 	/**
 	 * Check if PIN is correct
-	 * @param PIN -personal identification number
+	 * @param PIN personal identification number
 	 * @return {@code true}/{@code false} correct or incorrect
 	 */
 	public boolean identify(int PIN) {

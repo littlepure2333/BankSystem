@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/GUI.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/CloseAccount.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/Deposit.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/LogIn.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/Menu.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/Notice.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/ReinstateAccount.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/SetPIN.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/SuspendAccount.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/Withdraw.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/GUI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/CloseAccount.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/Deposit.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/LogIn.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/Menu.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/Notice.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/ReinstateAccount.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/SetPIN.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/SuspendAccount.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/littlepure/views/Withdraw.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
  */
 
 /**
- * @author 机械师
+ * @author littlepure
  *
  */
 public class LogIn extends JPanel {
@@ -61,7 +61,7 @@ public class LogIn extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				long accNo = Long.parseLong(accNoInput.getText());
 				int PIN = Integer.parseInt(PINInput.getText());
-				// 如果登陆成功
+				// 濡傛灉鐧婚檰鎴愬姛
 				if(Bank.logIn(accNo, PIN)) {
 					frame.getContentPane().remove(thisPanel);
 					frame.getContentPane().add(nextPanel);

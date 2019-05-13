@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
  */
 
 /**
- * @author ป๚ะตสฆ
+ * @author littlepure
  *
  */
 public class SetPIN extends JPanel {

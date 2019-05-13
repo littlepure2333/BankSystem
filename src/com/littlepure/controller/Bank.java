@@ -64,8 +64,8 @@ public class Bank {
     /**
      * Register a new account, and feedback register result.
      * If success, this new account will be the active account.
-     * @param name -name of customer
-     * @param address - address of customer
+     * @param name name of customer
+     * @param address address of customer
      * @param DOB Date of birth
      * @param type account type
      * @return 0 -register success / 1 -incorrect format of date / 2 -insufficient credit figure
@@ -129,8 +129,8 @@ public class Bank {
     /**
      * Log in, and active account is loaded meanwhile.
      * Most operations need to log in first.
-     * @param accNo -Account number
-     * @param PIN -Personal identification number
+     * @param accNo Account number
+     * @param PIN Personal identification number
      * @return {@code true}/{@code false} success or fail
      */
     public static boolean logIn(long accNo, int PIN) {
@@ -169,7 +169,7 @@ public class Bank {
 
     /**
      * Set PIN for new account.
-     * @param PIN -Personal identification number
+     * @param PIN Personal identification number
      */
     public static void setPIN(int PIN) {
         getAccount().setPIN(PIN);
@@ -178,7 +178,7 @@ public class Bank {
 
     /**
      * Access active account balance.
-     * @return balance({@code double)
+     * @return balance({@code double})
      */
     public static double getBalance() {
         return getAccount().getBalance();
@@ -194,8 +194,8 @@ public class Bank {
 
     /**
      * Deposit
-     * @param amount -the amount to deposit
-     * @param cleared -if need to be cleared
+     * @param amount the amount to deposit
+     * @param cleared if need to be cleared
      */
     public static void deposit(double amount, boolean cleared) {
         getAccount().deposit(amount, cleared);
@@ -204,7 +204,7 @@ public class Bank {
 
     /**
      * Withdraw, and feedback withdraw result.
-     * @param amount -the amount to deposit
+     * @param amount the amount to deposit
      * @return WITHDRAW_SUCCESS = 0 /
      * EXCEED_OVERDRAFT_LIMIT = 1 /
      * WITHDRAWAL_IS_NOT_ALLOWED = 2 /
@@ -274,7 +274,7 @@ public class Bank {
 
     /**
      * Apply a notice, only being called when active account is a saver account.
-     * @param noticeDays -how many days later which active account apply a notice
+     * @param noticeDays how many days later which active account apply a notice
      * @return {@code true}/{@code false} success or fail
      */
     public static boolean applyNotice(int noticeDays) {
@@ -298,7 +298,7 @@ public class Bank {
 
     /**
      * Find account by account number, and load to active account.
-     * @param accNo -account number
+     * @param accNo account number
      * @return BankAccount
      */
     public static BankAccount findAccountByNo(long accNo) {
@@ -330,5 +330,4 @@ public class Bank {
                 (getAccount().getUnclearedFunds() == 0);
     }
 
-    //todo 检查输入格式 可以在GUI上设置只能接受数字的框
 }

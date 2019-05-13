@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  */
 
 /**
- * @author »úĞµÊ¦
+ * @author littlepure
  *
  */
 public class Notice extends JPanel {
@@ -56,7 +56,7 @@ public class Notice extends JPanel {
 		btnApply.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int noticeDaysInput = Integer.parseInt(textField.getText());
-				// Èç¹û·ûºÏ×îĞ¡ÈÕÆÚ
+				// å¦‚æœç¬¦åˆæœ€å°æ—¥æœŸ
 				if(Bank.applyNotice(noticeDaysInput)) {
 					JOptionPane.showMessageDialog(null,
 							"Apply notice success!");

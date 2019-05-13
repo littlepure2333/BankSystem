@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * @author littlepure
+ *
+ */
 public class SuspendAccount extends JPanel {
 
 	/**

@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  */
 
 /**
- * @author 机械师
+ * @author littlepure
  *
  */
 public class Withdraw extends JPanel {
@@ -60,7 +60,7 @@ public class Withdraw extends JPanel {
 		JButton btnWithdraw = new JButton("Withdraw");
 		btnWithdraw.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// 如果被停用了
+				// 濡傛灉琚仠鐢ㄤ簡
 				if(Bank.isSuspended()) {
 					JOptionPane.showMessageDialog(null,
 							"Your account has been suspended!");
@@ -82,14 +82,14 @@ public class Withdraw extends JPanel {
 						frame.getContentPane().remove(thisPanel);
 						frame.getContentPane().add(new Menu(frame));
 					}
-					// 如果还没到noticeday
+					// 濡傛灉杩樻病鍒皀oticeday
 					else if(result == SaverAccount.WITHDRAWAL_IS_NOT_ALLOWED) {
 						JOptionPane.showMessageDialog(null,
 								"Withdraw is not allowed until " + Bank.getNoticeDate() + "!");
 						frame.getContentPane().remove(thisPanel);
 						frame.getContentPane().add(new Menu(frame));
 					}
-					// 否则还没申请notice，让用户申请
+					// 鍚﹀垯杩樻病鐢宠notice锛岃鐢ㄦ埛鐢宠
 					else {
 						JOptionPane.showMessageDialog(null,
 								"You should apply a notice first because of saver account");

@@ -8,15 +8,15 @@ class CreditAgency {
      * Credit agency carries out a credit search.
      * Provided that the customer has a satisfactory credit history,
      * a new account is allowed to open.
-     * @param name -name of customer
+     * @param name name of customer
      * @param address address of customer
-     * @param DOB -Date of birthday
+     * @param DOB Date of birthday
      * @return {@code true}/{@code false} has or has not
      */
     static boolean hasSatisfactoryCreditHistory(String name, String address, String DOB) {
         CurrentAccountList currentAccountList = Bank.getCurrentAccountList();
         for (CurrentAccount currentAccount : currentAccountList.getCurrentAccountList()) {
-            // 如果这个用户注册过别的账户
+            // if the customer has opened one account
             if ((currentAccount.getName().equals(name))
                     && (currentAccount.getAddress().equals(address))
                     && (currentAccount.getDOB().equals(DOB))) {

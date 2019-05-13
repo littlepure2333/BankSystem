@@ -16,7 +16,7 @@ public class SaverAccount extends BankAccount{
     }
 
     /**
-     * Create a saver account
+     * Create a saver account.
      * @param name name of customer
      * @param address address of customer
      * @param DOB date of birth
@@ -29,14 +29,11 @@ public class SaverAccount extends BankAccount{
     }
 
     /**
-     * 获取现在是否能允许withdraw
-     * 调用时会自动更新允许状态并返回
-     * @return true/false
+     * Check if withdraw is allowed.
+     * @return {@code true}/{@code false} yes or not
      */
     public boolean getWithdrawalIsAllowed() {
-        // 如果申请过notice
         if(haveApplyNotice()) {
-            // 如果当前日期在noticeDate之后，允许取款
             if(new Date().after(getNoticeDate())) {
                 setWithdrawalIsAllowed(true);
             }
@@ -44,12 +41,6 @@ public class SaverAccount extends BankAccount{
         return this.withdrawalIsAllowed;
     }
 
-    /**
-     * 设置NoticeDate之前一定要调用此函数
-     * 如果已经有了NoticeDate
-     * 就应该提示用户这个账户已经申请了notice
-     * @return Date/null
-     */
     public Date getNoticeDate() {
         return this.noticeDate;
     }
@@ -63,16 +54,15 @@ public class SaverAccount extends BankAccount{
     }
 
     /**
-     * 申请notice，总是会在现在没有NoticeDate时才会调用
-     * 并检测申请日期是否符合要求
-     * @param noticeDays -申请几天后notice
-     * @return true/false
+     * Apply a notice, and feedback result.
+     * @param noticeDays how many days after
+     * @return {@code true}/{@code false} yes or not
      */
     public boolean applyNotice(int noticeDays) {
         if (noticeDays >= MINIMUM_PERIOD_OF_NOTICE) {
-            //获取当前时间
+            // access present time
             Calendar now = Calendar.getInstance();
-            //计算noticeDate
+            // calculate noticeDate
             now.add(Calendar.DATE, noticeDays);
             setNoticeDate(now.getTime());
             return true;
@@ -83,15 +73,15 @@ public class SaverAccount extends BankAccount{
     }
 
     /**
-     * 取钱成功后会重置notice状态
-     * 没到notice时间取不了钱
-     * @param amount
-     * @return 0 -成功 / 1 -超过limit / 2 -没到notice时间 / 3 -没申请notice
+     * withdraw, and feedback result
+     * @param amount amount of withdraw
+     * @return 0 -success / 1 -exceed overdraft limit
+     * / 2 -has not reach the day / 3 -has not apply a notice
      */
     @Override
     public int withdraw(double amount) {
         if(getWithdrawalIsAllowed()) {
-            //notice状态恢复成默认
+            // default the state of notice
             setNoticeDate(null);
             setWithdrawalIsAllowed(false);
             return super.withdraw(amount);
@@ -106,8 +96,8 @@ public class SaverAccount extends BankAccount{
     }
 
     /**
-     * 判断账户有没有申请notice
-     * @return true/dalse
+     * Check if a notice is applied
+     * @return {@code true}/{@code false} yes or not
      */
     public boolean haveApplyNotice() {
         if(noticeDate != null) {

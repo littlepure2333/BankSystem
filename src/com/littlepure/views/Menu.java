@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
  */
 
 /**
- * @author »úÐµÊ¦
+ * @author littlepure
  *
  */
 public class Menu extends JPanel {
@@ -32,7 +32,7 @@ public class Menu extends JPanel {
 		
 		JLabel label = new JLabel("Welcom to Bank System");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("ËÎÌå", Font.PLAIN, 28));
+		label.setFont(new Font("å®‹ä½“", Font.PLAIN, 28));
 		add(label, BorderLayout.NORTH);
 		
 		JPanel panel = new JPanel();

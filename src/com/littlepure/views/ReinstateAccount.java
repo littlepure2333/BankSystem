@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  */
 
 /**
- * @author ป๚ะตสฆ
+ * @author littlepure
  *
  */
 public class ReinstateAccount extends JPanel {

@@ -12,7 +12,7 @@ import javax.swing.*;
  */
 
 /**
- * @author ป๚ะตสฆ
+ * @author littlepure
  *
  */
 public class CloseAccount extends JPanel {

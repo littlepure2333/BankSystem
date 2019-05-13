@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
  */
 
 /**
- * @author »úĞµÊ¦
+ * @author littlepure
  *
  */
 public class Deposit extends JPanel {
@@ -51,7 +51,7 @@ public class Deposit extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				long accNo = Long.parseLong(accNoInput.getText());
 				double amount = Double.parseDouble(amountInput.getText());
-				// ÏÈ¼ì²éÕâ¸öÕË»§ÓĞÃ»ÓĞ±»¶³½á
+				// å…ˆæ£€æŸ¥è¿™ä¸ªè´¦æˆ·æœ‰æ²¡æœ‰è¢«å†»ç»“
 				BankAccount account = Bank.findAccountByNo(accNo);
 				if(account.getSuspended()) {
 					JOptionPane.showMessageDialog(null,
@@ -82,10 +82,10 @@ public class Deposit extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				long accNo = Long.parseLong(accNoInput.getText());
 				double amount = Double.parseDouble(amountInput.getText());
-				// ÏÈ¼ì²éÊÇ·ñ´æÔÚÕâ¸öÕË»§
+				// å…ˆæ£€æŸ¥æ˜¯å¦å­˜åœ¨è¿™ä¸ªè´¦æˆ·
 				BankAccount account = Bank.findAccountByNo(accNo);
 				if(account != null) {
-					//Èç¹ûÕË»§ÒÑ±»Í£ÓÃ
+					//å¦‚æœè´¦æˆ·å·²è¢«åœç”¨
 					if(account.getSuspended()) {
 						JOptionPane.showMessageDialog(null,
 								"Your account has been suspended!");
@@ -104,7 +104,7 @@ public class Deposit extends JPanel {
 						frame.repaint();
 					}
 				}
-				// ·ñÔòÕË»§²»´æÔÚ
+				// å¦åˆ™è´¦æˆ·ä¸å­˜åœ¨
 				else {
 					JOptionPane.showMessageDialog(null,
 							"The account doesn't exist");

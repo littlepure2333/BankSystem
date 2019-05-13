@@ -8,9 +8,9 @@ public class JuniorAccount extends BankAccount{
 
     /**
      * Create a junior account
-     * @param name -name of customer
-     * @param address -address of customer
-     * @param DOB d-date of birth
+     * @param name name of customer
+     * @param address address of customer
+     * @param DOB date of birth
      */
     public JuniorAccount(String name, String address, String DOB) {
         super(name, address, DOB);
