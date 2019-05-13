@@ -14,19 +14,19 @@ class BankTest {
         String name1 = "fsy";
         String address1 = "bupt";
         String DOB1 = "1997-4-23";
-        Bank.register(name1, address1, DOB1, Bank.CURRENT);
+        Bank.register(name1, address1, DOB1, Bank.CURRENT, 100);
         System.out.println("1");
 
         String name2 = "fsysb";
         String address2 = "IOT";
         String DOB2 = "1998-6-6";
-        Bank.register(name2, address2, DOB2, Bank.SAVER);
+        Bank.register(name2, address2, DOB2, Bank.SAVER, 100);
         System.out.println("2");
 
         String name3 = "fsyson";
         String address3 = "kindergarten";
         String DOB3 = "2016-6-1";
-        Bank.register(name3, address3, DOB3, Bank.JUNIOR);
+        Bank.register(name3, address3, DOB3, Bank.JUNIOR, 100);
         System.out.println("3");
     }
 
@@ -55,17 +55,17 @@ class BankTest {
         String DOB3 = "2010-4-23";
         int PIN3 = 3344;
 
-        Bank.register(name1, address1, DOB1, Bank.SAVER);
+        Bank.register(name1, address1, DOB1, Bank.SAVER, 100);
         Bank.setPIN(PIN1);
         assertEquals(PIN1, Bank.getAccount().getPIN());
         assertTrue(Bank.logIn(Bank.getAccount().getAccNo(), PIN1));
 
-        Bank.register(name2, address2, DOB2, Bank.CURRENT);
+        Bank.register(name2, address2, DOB2, Bank.CURRENT, 100);
         Bank.setPIN(PIN2);
         assertEquals(PIN2, Bank.getAccount().getPIN());
         assertTrue(Bank.logIn(Bank.getAccount().getAccNo(), PIN2));
 
-        Bank.register(name3, address3, DOB3, Bank.JUNIOR);
+        Bank.register(name3, address3, DOB3, Bank.JUNIOR, 100);
         Bank.setPIN(PIN3);
         assertEquals(PIN3, Bank.getAccount().getPIN());
         assertTrue(Bank.logIn(Bank.getAccount().getAccNo(), PIN3));
@@ -126,7 +126,7 @@ class BankTest {
         String address1 = "荒蛮之地";
         String DOB1 = "1990-4-23";
         int PIN1 = 5566;
-        Bank.register(name1, address1, DOB1, Bank.SAVER);
+        Bank.register(name1, address1, DOB1, Bank.SAVER, 100);
         long testAccNo = Bank.getAccount().getAccNo();
         Bank.setPIN(PIN1);
         Bank.logOut();
@@ -144,7 +144,7 @@ class BankTest {
         int PIN1 = 6677;
         int noticeDays1 = 2;
         int noticeDays2 = 3;
-        Bank.register(name1, address1, DOB1, Bank.SAVER);
+        Bank.register(name1, address1, DOB1, Bank.SAVER, 100);
         assertFalse(Bank.applyNotice(noticeDays1));
         assertTrue(Bank.applyNotice(noticeDays2));
         System.out.println(Bank.getNoticeDate());

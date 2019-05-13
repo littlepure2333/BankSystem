@@ -84,7 +84,7 @@ public abstract class BankAccount {
 	/**
 	 * setters
 	 */
-	void setBalance(double balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 

@@ -316,5 +316,51 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="com.littlepure.models.SaverAccount" id="SaverAccount8">
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>accNo</string>
+     <void method="set">
+      <object idref="SaverAccount8"/>
+      <long>1557757211211</long>
+     </void>
+    </void>
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>name</string>
+     <void method="set">
+      <object idref="SaverAccount8"/>
+      <string>credit</string>
+     </void>
+    </void>
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>address</string>
+     <void method="set">
+      <object idref="SaverAccount8"/>
+      <string>credit</string>
+     </void>
+    </void>
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>DOB</string>
+     <void method="set">
+      <object idref="SaverAccount8"/>
+      <string>2012-9-8</string>
+     </void>
+    </void>
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>balance</string>
+     <void method="set">
+      <object idref="SaverAccount8"/>
+      <double>50.0</double>
+     </void>
+    </void>
+    <void class="com.littlepure.models.BankAccount" method="getField">
+     <string>PIN</string>
+     <void method="set">
+      <object idref="SaverAccount8"/>
+      <int>678</int>
+     </void>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

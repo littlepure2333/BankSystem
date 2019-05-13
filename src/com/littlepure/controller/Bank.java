@@ -12,9 +12,12 @@ public class Bank {
     public static final int SAVER = 2;
     public static final int REGISTER_SUCCESS = 0;
     public static final int INCORRECT_FORMAT = 1;
-    public static final int NOT_JUNIOR = 2;
-    public static final int POOR_CREDIT_HISTORY = 3;
-    public static final int UNKNOWN_TYPE = 4;
+    public static final int POOR_CREDIT_HISTORY = 2;
+    public static final int NOT_JUNIOR = 3;
+    public static final int INSUFFICIENT_CREDIT_FIGURE = 4;
+    public static final int UNKNOWN_TYPE = 5;
+
+    public static final double MINIMUM_CREDIT_FIGURE = 50;
 
     private static JuniorAccountList juniorAccountList = new JuniorAccountList();
     private static CurrentAccountList currentAccountList = new CurrentAccountList();
@@ -58,7 +61,7 @@ public class Bank {
         juniorAccountList.update();
     }
 
-///todo 开户需要最小金额
+//todo 开户需要最小金额
     /**
      * 给用户注册，选择账户类型并返回注册结果
      * 注册成功后会使当前账户变成刚注册的账户
@@ -67,48 +70,56 @@ public class Bank {
      * @param address
      * @param DOB -Date of birth
      * @param type
-     * @return 0 -成功 / 1 -DOB格式错误 / 2 -不是Junior / 3 -信用历史较差不让注册
+     * @return 0 -成功 / 1 -DOB格式错误 / 2 -充值金额不够 / 3 -不是Junior / 4 -信用历史较差不让注册
      */
-    public static int register(String name, String address, String DOB, int type) {
+    public static int register(String name, String address, String DOB, int type, double amount) {
         if(dateUtil.isValidDate(DOB)) {
-            switch (type) {
-                case JUNIOR:
-                    if(dateUtil.isJunior(DOB)){
+            if(amount >= MINIMUM_CREDIT_FIGURE) {
+                switch (type) {
+                    case JUNIOR:
+                        if(dateUtil.isJunior(DOB)){
+                            if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
+                                JuniorAccount juniorAccount = new JuniorAccount(name, address, DOB);
+                                juniorAccount.setBalance(amount);
+                                juniorAccountList.addJuniorAccount(juniorAccount);
+                                setAccount(juniorAccount);
+                                return REGISTER_SUCCESS;
+                            }
+                            else {
+                                return POOR_CREDIT_HISTORY;
+                            }
+                        }
+                        else {
+                            return NOT_JUNIOR;
+                        }
+                    case CURRENT:
                         if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
-                            JuniorAccount juniorAccount = new JuniorAccount(name, address, DOB);
-                            juniorAccountList.addJuniorAccount(juniorAccount);
-                            setAccount(juniorAccount);
+                            CurrentAccount currentAccount = new CurrentAccount(name, address, DOB);
+                            currentAccount.setBalance(amount);
+                            currentAccountList.addCurrentAccount(currentAccount);
+                            setAccount(currentAccount);
                             return REGISTER_SUCCESS;
                         }
                         else {
                             return POOR_CREDIT_HISTORY;
                         }
-                    }
-                    else {
-                        return NOT_JUNIOR;
-                    }
-                case CURRENT:
-                    if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
-                        CurrentAccount currentAccount = new CurrentAccount(name, address, DOB);
-                        currentAccountList.addCurrentAccount(currentAccount);
-                        setAccount(currentAccount);
-                        return REGISTER_SUCCESS;
-                    }
-                    else {
-                        return POOR_CREDIT_HISTORY;
-                    }
-                case SAVER:
-                    if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
-                        SaverAccount saverAccount = new SaverAccount(name, address, DOB);
-                        saverAccountList.addSaverAccount(saverAccount);
-                        setAccount(saverAccount);
-                        return REGISTER_SUCCESS;
-                    }
-                    else {
-                        return POOR_CREDIT_HISTORY;
-                    }
-                default:
-                    return UNKNOWN_TYPE;
+                    case SAVER:
+                        if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
+                            SaverAccount saverAccount = new SaverAccount(name, address, DOB);
+                            saverAccount.setBalance(amount);
+                            saverAccountList.addSaverAccount(saverAccount);
+                            setAccount(saverAccount);
+                            return REGISTER_SUCCESS;
+                        }
+                        else {
+                            return POOR_CREDIT_HISTORY;
+                        }
+                    default:
+                        return UNKNOWN_TYPE;
+                }
+            }
+            else {
+                return INSUFFICIENT_CREDIT_FIGURE;
             }
         }
         else {
