@@ -1,6 +1,7 @@
 package views;
 
 import com.littlepure.Bank;
+import com.littlepure.CleanSystem;
 
 import java.awt.EventQueue;
 
@@ -41,6 +42,7 @@ public class GUI {
 	 */
 	public GUI() {
 		initialize();
+		CleanSystem.clear();
 	}
 
 	/**

@@ -311,14 +311,7 @@
      <string>balance</string>
      <void method="set">
       <object idref="SaverAccount7"/>
-      <double>999.0</double>
-     </void>
-    </void>
-    <void class="com.littlepure.BankAccount" method="getField">
-     <string>unclearedFunds</string>
-     <void method="set">
-      <object idref="SaverAccount7"/>
-      <double>605.0</double>
+      <double>101648.0</double>
      </void>
     </void>
    </object>
