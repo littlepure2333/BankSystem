@@ -1,10 +1,9 @@
 package com.littlepure.controller;
 
 import com.littlepure.models.*;
+import com.littlepure.util.dateUtil;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Bank {
@@ -40,14 +39,25 @@ public class Bank {
         return juniorAccountList;
     }
 
-    /**
-     * 生成全局独一无二的No
-     * @return
-     */
-    public static long generateNo() {
-        long nowDate = new Date().getTime();
-        return nowDate;
+    public static BankAccount getAccount() {
+        return account;
     }
+
+
+    public static void setAccount(BankAccount account) {
+        Bank.account = account;
+    }
+
+    /**
+     * 在账户进行更改后立即调用此函数
+     * 把更改保存到本地
+     */
+    public static void update() {
+        saverAccountList.update();
+        currentAccountList.update();
+        juniorAccountList.update();
+    }
+
 ///todo 开户需要最小金额
     /**
      * 给用户注册，选择账户类型并返回注册结果
@@ -60,10 +70,10 @@ public class Bank {
      * @return 0 -成功 / 1 -DOB格式错误 / 2 -不是Junior / 3 -信用历史较差不让注册
      */
     public static int register(String name, String address, String DOB, int type) {
-        if(isValidDate(DOB)) {
+        if(dateUtil.isValidDate(DOB)) {
             switch (type) {
                 case JUNIOR:
-                    if(isJunior(DOB)){
+                    if(dateUtil.isJunior(DOB)){
                         if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
                             JuniorAccount juniorAccount = new JuniorAccount(name, address, DOB);
                             juniorAccountList.addJuniorAccount(juniorAccount);
@@ -104,64 +114,6 @@ public class Bank {
         else {
             return INCORRECT_FORMAT;
         }
-    }
-
-    /**
-     * 判断时间格式 格式必须为“YYYY-MM-dd”
-     * 并且DOB不能大于现在时间
-     * @param str
-     * @return true/false
-     */
-    public static boolean isValidDate(String str) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        try{
-            formatter.setLenient(false);
-            Date DOB = formatter.parse(str);
-            //DOB不能超过当前时间
-            if(DOB.before(new Date())){
-                return true;
-            }
-            else {
-                return false;
-            }
-        }catch(Exception e){
-            return false;
-        }
-    }
-
-    /**
-     * 判断是不是Junior
-     * @param str -Date of birth
-     * @return true/false
-     */
-    public static boolean isJunior(String str) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar now = Calendar.getInstance();
-        int nowYear = now.get(Calendar.YEAR);
-        formatter.setLenient(false);
-        try {
-            Date DOB = formatter.parse(str);
-            // 把DOB转换到now里面，因为Calendar类才可以提取年份
-            now.setTime(DOB);
-            // 如果小于16岁
-            if(nowYear - now.get(Calendar.YEAR) < 16) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public static BankAccount getAccount() {
-        return account;
-    }
-
-    public static void setAccount(BankAccount account) {
-        Bank.account = account;
     }
 
     /**
@@ -214,16 +166,6 @@ public class Bank {
     public static void setPIN(int PIN) {
         getAccount().setPIN(PIN);
         update();
-    }
-
-    /**
-     * 在账户进行更改后立即调用此函数
-     * 把更改保存到本地
-     */
-    public static void update() {
-        saverAccountList.update();
-        currentAccountList.update();
-        juniorAccountList.update();
     }
 
     /**
@@ -365,21 +307,6 @@ public class Bank {
             return temp;
         }
         return null;
-    }
-
-    /**
-     * 查询当前用户是否可以取款
-     * 仅当当前账户是saver是调用
-     * @return true/false
-     */
-    public static boolean getWithdrawalIsAllowed() {
-        SaverAccount saverAccount = (SaverAccount)Bank.getAccount();
-        return saverAccount.getWithdrawalIsAllowed();
-    }
-
-    public static boolean haveApplyNotice() {
-        SaverAccount saverAccount = (SaverAccount)Bank.getAccount();
-        return saverAccount.haveApplyNotice();
     }
 
     /**

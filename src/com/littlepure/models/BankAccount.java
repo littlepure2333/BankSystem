@@ -1,6 +1,6 @@
 package com.littlepure.models;
 
-import com.littlepure.controller.Bank;
+import com.littlepure.util.numberUtil;
 
 public abstract class BankAccount {
 	// instance variables
@@ -28,7 +28,7 @@ public abstract class BankAccount {
 	 * @param DOB
 	 */
 	BankAccount(String name, String address, String DOB) {
-		this.accNo = Bank.generateNo();
+		this.accNo = numberUtil.generateNo();
 		this.name = name;
 		this.address = address;
 		this.DOB = DOB;
@@ -107,10 +107,6 @@ public abstract class BankAccount {
 
 
 	// deposit method
-//	public void deposit(double amount) {
-//		setBalance(this.getBalance() + amount);
-//	}
-	
 	public void deposit(double amount, boolean cleared) {
 		if (cleared == true) {
 			setBalance(this.getBalance() + amount);

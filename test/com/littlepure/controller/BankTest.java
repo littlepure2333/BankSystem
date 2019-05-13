@@ -1,35 +1,13 @@
-package com.littlepure.models;
+package com.littlepure.controller;
 
-import com.littlepure.controller.Bank;
 import com.littlepure.models.CurrentAccount;
+import com.littlepure.util.dateUtil;
+import com.littlepure.util.numberUtil;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BankTest {
-
-    @Test
-    void testGenerateNo() {
-        System.out.println(Bank.generateNo());
-    }
-
-    @Test
-    void testIsValidDate() {
-        String str1 = "2013-04-4";
-        String str2 = "2013-2-30";
-        String str3 = "2023-4-15";
-        assertTrue(Bank.isValidDate(str1));
-        assertFalse(Bank.isValidDate(str2));
-        assertFalse(Bank.isValidDate(str3));
-    }
-
-    @Test
-    void testIsJunior() {
-        String str1 = "2013-04-4";
-        String str2 = "2000-04-4";
-        assertTrue(Bank.isJunior(str1));
-        assertFalse(Bank.isJunior(str2));
-    }
 
     @Test
     void testRegister() {
