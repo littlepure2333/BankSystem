@@ -15,7 +15,7 @@ public class Bank {
     public static final int POOR_CREDIT_HISTORY = 2;
     public static final int NOT_JUNIOR = 3;
     public static final int INSUFFICIENT_CREDIT_FIGURE = 4;
-    public static final int UNKNOWN_TYPE = 5;
+    private static final int UNKNOWN_TYPE = 5;
 
     public static final double MINIMUM_CREDIT_FIGURE = 50;
 
@@ -30,15 +30,15 @@ public class Bank {
         saverAccountList.loadList();
     }
 
-    public static SaverAccountList getSaverAccountList() {
+    static SaverAccountList getSaverAccountList() {
         return saverAccountList;
     }
 
-    public static CurrentAccountList getCurrentAccountList() {
+    static CurrentAccountList getCurrentAccountList() {
         return currentAccountList;
     }
 
-    public static JuniorAccountList getJuniorAccountList() {
+    static JuniorAccountList getJuniorAccountList() {
         return juniorAccountList;
     }
 
@@ -52,25 +52,24 @@ public class Bank {
     }
 
     /**
-     * 在账户进行更改后立即调用此函数
-     * 把更改保存到本地
+     * Used for save changes to local text file.
+     * Should be called immediately after the account been changed.
      */
-    public static void update() {
+    static void update() {
         saverAccountList.update();
         currentAccountList.update();
         juniorAccountList.update();
     }
 
-//todo 开户需要最小金额
     /**
-     * 给用户注册，选择账户类型并返回注册结果
-     * 注册成功后会使当前账户变成刚注册的账户
-     * 注册成功后要立即调用setPIN
-     * @param name
-     * @param address
-     * @param DOB -Date of birth
-     * @param type
-     * @return 0 -成功 / 1 -DOB格式错误 / 2 -充值金额不够 / 3 -不是Junior / 4 -信用历史较差不让注册
+     * Register a new account, and feedback register result.
+     * If success, this new account will be the active account.
+     * @param name -name of customer
+     * @param address - address of customer
+     * @param DOB Date of birth
+     * @param type account type
+     * @return 0 -register success / 1 -incorrect format of date / 2 -insufficient credit figure
+     * / 3 -is not a junior / 4 -has a poor credit history
      */
     public static int register(String name, String address, String DOB, int type, double amount) {
         if(dateUtil.isValidDate(DOB)) {
@@ -78,7 +77,7 @@ public class Bank {
                 switch (type) {
                     case JUNIOR:
                         if(dateUtil.isJunior(DOB)){
-                            if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
+                            if(CreditAgency.hasSatisfactoryCreditHistory(name, address, DOB)) {
                                 JuniorAccount juniorAccount = new JuniorAccount(name, address, DOB);
                                 juniorAccount.setBalance(amount);
                                 juniorAccountList.addJuniorAccount(juniorAccount);
@@ -93,7 +92,7 @@ public class Bank {
                             return NOT_JUNIOR;
                         }
                     case CURRENT:
-                        if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
+                        if(CreditAgency.hasSatisfactoryCreditHistory(name, address, DOB)) {
                             CurrentAccount currentAccount = new CurrentAccount(name, address, DOB);
                             currentAccount.setBalance(amount);
                             currentAccountList.addCurrentAccount(currentAccount);
@@ -104,7 +103,7 @@ public class Bank {
                             return POOR_CREDIT_HISTORY;
                         }
                     case SAVER:
-                        if(CreditAgency.hasSatisfacoryCreditHistory(name, address, DOB)) {
+                        if(CreditAgency.hasSatisfactoryCreditHistory(name, address, DOB)) {
                             SaverAccount saverAccount = new SaverAccount(name, address, DOB);
                             saverAccount.setBalance(amount);
                             saverAccountList.addSaverAccount(saverAccount);
@@ -128,13 +127,11 @@ public class Bank {
     }
 
     /**
-     * 登陆,并且加载到当前账户，只有账号密码都对才返回正确
-     * 账号不存在，密码错误都会返回false
-     * 除了注册之外的操作都应先登陆
-     * 登陆后应该检查是否账户被停用
-     * @param accNo -账号
-     * @param PIN -密码
-     * @return true/false
+     * Log in, and active account is loaded meanwhile.
+     * Most operations need to log in first.
+     * @param accNo -Account number
+     * @param PIN -Personal identification number
+     * @return {@code true}/{@code false} success or fail
      */
     public static boolean logIn(long accNo, int PIN) {
         BankAccount temp = saverAccountList.findAccountByNo(accNo);
@@ -171,8 +168,8 @@ public class Bank {
     }
 
     /**
-     * 注册成功后紧接着调用这个函数用来设置密码
-     * @param PIN -密码
+     * Set PIN for new account.
+     * @param PIN -Personal identification number
      */
     public static void setPIN(int PIN) {
         getAccount().setPIN(PIN);
@@ -180,26 +177,25 @@ public class Bank {
     }
 
     /**
-     * 获取当前账户余额
-     * @return balance
+     * Access active account balance.
+     * @return balance({@code double)
      */
     public static double getBalance() {
         return getAccount().getBalance();
     }
 
     /**
-     * 登陆后立即检查是否被停用
-     * @return true/false
+     * Check if active account is suspended.
+     * @return {@code true}/{@code false} suspended or not suspended
      */
     public static boolean isSuspended() {
         return getAccount().getSuspended();
     }
 
     /**
-     * 存钱,并且自动更新到本地
-     * @param amount -金额
-     * @param cleared -是否cleared
-     * @return
+     * Deposit
+     * @param amount -the amount to deposit
+     * @param cleared -if need to be cleared
      */
     public static void deposit(double amount, boolean cleared) {
         getAccount().deposit(amount, cleared);
@@ -207,9 +203,8 @@ public class Bank {
     }
 
     /**
-     * 取钱，并自动更新到本地
-     * 要在登陆之后调用
-     * @param amount
+     * Withdraw, and feedback withdraw result.
+     * @param amount -the amount to deposit
      * @return WITHDRAW_SUCCESS = 0 /
      * EXCEED_OVERDRAFT_LIMIT = 1 /
      * WITHDRAWAL_IS_NOT_ALLOWED = 2 /
@@ -217,14 +212,14 @@ public class Bank {
      */
     public static int withdraw(double amount) {
         int result;
-        // 如果是saverAccount,withdraw方法不一样
+        // if saver account, there is a different withdraw method
         if(getAccount() instanceof SaverAccount) {
             SaverAccount saverAccount = (SaverAccount) getAccount();
             result = saverAccount.withdraw(amount);
             update();
             return result;
         }
-        // 要不然就是current或junior
+        // current or junior account otherwise
         else {
             result = getAccount().withdraw(amount);
             update();
@@ -233,25 +228,33 @@ public class Bank {
     }
 
     /**
-     * 登出，所有操作完成后等应该立即调用此函数
+     * Log out active account.
+     * @see #logIn(long, int)
      */
-    public static void logOut() {
+    static void logOut() {
         setAccount(null);
     }
 
+    /**
+     * Suspend active account.
+     * @see #logIn(long, int)
+     */
     public static void suspend() {
         getAccount().suspend();
         update();
     }
 
+    /**
+     * Reinstate active account.
+     * @see #logIn(long, int)
+     */
     public static void reinstate() {
         getAccount().reinstate();
         update();
     }
 
     /**
-     * 注销这个账户，本地将不会存有此账户信息
-     * 必须先登录才能调用这个函数
+     * Close active account. All information about this account is eliminated in local text file.
      */
     public static void closeAccount() {
         BankAccount temp = Bank.getAccount();
@@ -270,11 +273,9 @@ public class Bank {
     }
 
     /**
-     * 申请notice,并保存更改结果到本地
-     * 仅当当前账户是saver时才会调用
-     * withdraw返回结果是 没有notice 时紧接着调用此函数
-     * @param noticeDays -申请几天后取钱
-     * @return true/false -是否符合最小日期
+     * Apply a notice, only being called when active account is a saver account.
+     * @param noticeDays -how many days later which active account apply a notice
+     * @return {@code true}/{@code false} success or fail
      */
     public static boolean applyNotice(int noticeDays) {
         SaverAccount saverAccount = (SaverAccount)Bank.getAccount();
@@ -284,10 +285,9 @@ public class Bank {
     }
 
     /**
-     * 获取notice是哪一天
-     * 仅当当前账户是saver时才会调用
-     * withdraw返回结果是 没到notice 时紧接着调用此函数显示什么时候是notice
-     * @return "yyyy-MM-dd" -notice的时间
+     * Access the day active account can withdraw.
+     * Only Being called when active is a saver account.
+     * @return "yyyy-MM-dd"
      */
     public static String getNoticeDate() {
         SaverAccount saverAccount = (SaverAccount)Bank.getAccount();
@@ -297,9 +297,9 @@ public class Bank {
     }
 
     /**
-     * 按照accNo查找账户，并且会加载到当前账户
-     * @param accNo
-     * @return
+     * Find account by account number, and load to active account.
+     * @param accNo -account number
+     * @return BankAccount
      */
     public static BankAccount findAccountByNo(long accNo) {
         BankAccount temp = juniorAccountList.findAccountByNo(accNo);
@@ -321,18 +321,13 @@ public class Bank {
     }
 
     /**
-     * 判断是否可以注销账号
-     * 当有balance或uncleared funds没结清的时候不能注销
-     * @return tru/false
+     * Check if active account balance is cleared to zero.
+     * Be called to check if the account can be closed.
+     * @return {@code true}/{@code false} can or can not
      */
     public static boolean canClose() {
-        if((getAccount().getBalance() == 0) &&
-                (getAccount().getUnclearedFunds() == 0)) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return (getAccount().getBalance() == 0) &&
+                (getAccount().getUnclearedFunds() == 0);
     }
 
     //todo 检查输入格式 可以在GUI上设置只能接受数字的框

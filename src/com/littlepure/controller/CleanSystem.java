@@ -14,6 +14,11 @@ public class CleanSystem {
     public static int FRIDAY = 6;
     public static int SATURDAY = 7;
 
+    /**
+     *  An external bank clearing system periodically clears un-cleared funds.
+     *  Once cleared, they are immediately credited to the account.
+     *  The clear period is one week, and when the clear-day can be definite.
+     */
     public static void clear() {
         Calendar today = Calendar.getInstance();
         int weekday = today.get(Calendar.DAY_OF_WEEK);
@@ -29,9 +34,9 @@ public class CleanSystem {
                 saverAccount.clearFunds();
             }
 
-            JuniorAccountList cuniorAccountList = Bank.getJuniorAccountList();
-            for (JuniorAccount cuniorAccount : cuniorAccountList.getJuniorAccountList()) {
-                cuniorAccount.clearFunds();
+            JuniorAccountList juniorAccountList = Bank.getJuniorAccountList();
+            for (JuniorAccount juniorAccount : juniorAccountList.getJuniorAccountList()) {
+                juniorAccount.clearFunds();
             }
 
             Bank.update();
